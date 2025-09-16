@@ -1,38 +1,367 @@
-.App {
+*{
+  max-width: 100%;
+
+}
+
+body{
+    overflow-x: hidden;
+}
+
+h1{
+  width: 200px;
+}
+
+.headM{
+  display: flex;
+  justify-content: space-between;
+  background-color: #17212B;
+
+}
+
+h1{
+  color: #fff;
+  margin-left: 20px;
+}
+
+img{
+  width: 35px;
+
+}
+.to{
+
+  transform: rotate(90deg);
+  margin-right: 20px;
+}
+
+.plus{
+  transform: rotate(45deg);
+
+}
+
+.imgA{
+  margin-right: 20px;
+  margin-top: 2.6vh;
+}
+
+body{
+  background-color: #232E3C;
+}
+
+.avatar {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 20px;
+}
+
+.user{
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+p{
+  color: #fff;
+  align-items: center;
   text-align: center;
+  display: inline-flex;
+  margin-left: 35px;
+  font-size: larger;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.line{
+  width: 95%;
+  margin-left: 5.5%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.mainhome{
+  display: flex;
+  flex-wrap: wrap;
+   position: relative;
+  display: inline-block;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.steps{
+    position: absolute;
+    top: 70px;
+    left: 155px;
+    color: #5288C1;
+    font-size: 24px;
+    margin: 0;
+}
+
+.stepsText{
+  position: absolute;
+  top: 106px;
+  left: 88px;
+  color: white;
+  font-size: 24px;
+  margin: 0;
+}
+
+.btnSteps{
+  font-size: 20px;
+  position: absolute;
+    bottom: -0px;
+    right: 130px;
+    padding: 5px 20px;
+    border: none;
+    background: #5288C1;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 0;
+}
+
+
+.section img{
+  display:flex;
+  margin-bottom: 10px;
+  width: 12%;
+}
+
+.section{
+  display: flex;
+  justify-content: space-around;
+}
+
+.details p {
+  color: #5288C1;
+  font-weight: 800;
+}
+
+.section p{
+  color: #fff;
+  margin: 5px;
+  font-weight: 600;
+
+}
+
+#sectionTwo p {
+  color: #b1b0b0;
+
+}
+
+.details{
+  margin-top: 40px;
+}
+
+.ScheduleFat{
+  margin-bottom: 50px;
+}
+
+
+.ScheduleFat button{
+    font-size: 20px;
+    padding: 10px 25px;
+    border: none;
+    background: #5288C1;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 30px 0 100px 0;
+
+}
+
+/* Nav bar base */
+.navbar {
+  position: fixed;
+  bottom: 0px;        /* відступ від низу для естетики */
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background: #17212b;
+  box-shadow: 0 8px 20px rgba(12, 30, 50, 0.08);
+  z-index: 1000;
+  width: 100vw;
+}
+
+/* посилання займає місце */
+.nav-link {
+  flex: 1;
+  text-decoration: none;
+}
+
+/* внутрішній блок кнопки */
+.nav-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 4px;
+  padding: 6px;
+  transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+  border-radius: 10px;
+  color: #333;
 }
 
-.App-link {
-  color: #61dafb;
+/* іконка */
+.nav-icon {
+  width: 28px;
+  height: 28px;
+  transition: transform 220ms ease, filter 220ms ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* активний стан: масштаб + підсвітка */
+.nav-item.active {
+  transform: translateY(-6px);
+  background: rgba(0, 123, 255, 0.08);
+  box-shadow: 0 10px 24px rgba(0, 123, 255, 0.12);
+}
+
+.nav-item.active .nav-icon {
+  transform: scale(1.15);
+  filter: drop-shadow(0 8px 18px rgba(0, 123, 255, 0.18));
+}
+
+/* підпис під іконкою (якщо хочеш показувати) */
+.nav-label {
+  font-size: 11px;
+  line-height: 1;
+  color: #222;
+  opacity: 0.9;
+}
+
+
+.add-page {
+  background: #0f1a2a; /* темний фон */
+  color: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: "Arial", sans-serif;
+}
+
+.add-page h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #fff;
+  text-align: center;
+}
+
+.add-page h3 {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #6db3ff; /* акцентний синій */
+}
+
+.add-page label {
+  display: block;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.add-page input,
+.add-page select,
+.add-page textarea {
+  width: 100%;
+  padding: 15px 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: #1b2a44;
+  color: #fff;
+}
+
+.add-page input[type="range"] {
+  width: 100%;
+}
+
+.add-page textarea {
+  resize: none;
+  height: 80px;
+}
+
+.add-page button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: linear-gradient(135deg, #4a90e2, #357ab7);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  margin-bottom: 100px;
+}
+
+.add-page button:hover {
+  background: linear-gradient(135deg, #5aa0f2, #468bd0);
+}
+
+.mainhome {
+  padding: 16px;
+  text-align: center;
+}
+
+/* Картинка (показується тільки без даних) */
+.line {
+  margin: 20px auto;
+  width: 200px;
+  opacity: 0.7;
+}
+
+/* Порада */
+.advice-box {
+  margin: 12px auto 20px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #212529;
+  color: #fff;
+  text-align: left;
+  line-height: 1.4;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.advice-title {
+  font-weight: bold;
+  margin: 0 0 8px;
+  color: #4dabf7;
+}
+
+.advice-text {
+  margin: 0 0 6px;
+}
+
+.advice-sub {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/* Блок останнього сну */
+.last-sleep-box {
+  background: #0f1724;
+  padding: 12px;
+  border-radius: 10px;
+  color: #fff;
+  text-align: left;
+}
+
+.last-sleep-title {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  color: #ffdd57;
+}
+
+.last-sleep-box p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+}
+
+#lineId{
+  width: 100%;
+  margin: 0;
+}
+
+
+
+#btnStepsId{
+  right:36.5vw;
+  bottom: 30px;
 }
