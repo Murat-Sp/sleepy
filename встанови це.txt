@@ -1,0 +1,7 @@
+це в коріну папку
+npm install react-router-dom axios framer-motion
+
+
+1 створи папку server в головній папці
+2 cd server
+3 npm install express dotenv cors openai

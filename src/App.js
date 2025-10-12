@@ -7,26 +7,21 @@ import Details from "./Details";
 import Schedule from "./Schedule";
 import MainHome from "./MainHome";
 import AddSleep from "./AddPage";
+import SleepAnalytics from "./Analytics";
+import Chat from "./chat";
 
-/**
- * App — головний файл
- * - зберігає масив записів sleepData
- * - передає його в MainHome (щоб показувати пораду / last night)
- * - передає перетворені дані (convertToSlides) в Details / Schedule
- */
+
+
 
 export default function App() {
-  const [sleepData, setSleepData] = useState([]); // масив об'єктів — всі записи сну
+  const [sleepData, setSleepData] = useState([]); 
 
-  // додає новий запис
+
   const addSleepRecord = (record) => {
     setSleepData((prev) => [...prev, record]);
   };
 
-  // Перетворити sleepData в формат slides (для Schedule / Details)
-  // BEDTIME у графіку береться як година засинання (0-23)
-  // DURATION -> години сну (float)
-  // QUALITY -> percent або scale (збережено у записі)
+  
   const convertToSlides = (data) => {
     if (!data || data.length === 0) {
       return [
@@ -43,7 +38,7 @@ export default function App() {
         label: "Час засипання (години)",
         labels,
         data: data.map((d) => {
-          // bedtime зберігається як "HH:MM" -> беремо годину + хвилини/60
+          
           if (!d.bedtime) return null;
           const [hh, mm] = d.bedtime.split(":").map(Number);
           return +(hh + mm / 60).toFixed(2);
@@ -71,12 +66,12 @@ export default function App() {
     <Router>
       <div className="App">
         <Routes>
-          {/* Головна сторінка: весь твій основний UI */}
+          {}
           <Route
             path="/"
             element={
               <>
-                {/* Header / Avatar (вбудовано тут, щоб було як у тебе) */}
+                {}
                 <div className="headM">
                   <h1>Sleepy</h1>
                   <div className="imgA">
@@ -94,13 +89,13 @@ export default function App() {
                   <p>Hi User</p>
                 </div>
 
-                {/* MainHome показує Continue або пораду (і приховує картинку якщо є дані) */}
+                {}
                 <MainHome sleepData={sleepData} />
 
-                {/* Details (передаємо slides) */}
+                {}
                 <Details slides={convertToSlides(sleepData)} />
 
-                {/* Schedule як частина головної сторінки */}
+                {}
                 <div className="ScheduleFat">
                   <div className="Schedule"></div>
                   <div style={{ textAlign: "center", fontFamily: "Arial" }}>
@@ -112,17 +107,19 @@ export default function App() {
             }
           />
 
-          {/* Сторінка додавання — додає запис у масив */}
+          
           <Route path="/add" element={<AddSleep addSleepRecord={addSleepRecord} />} />
 
-          {/* Окрема сторінка статистики (якщо треба) */}
-          <Route path="/stats" element={<Details slides={convertToSlides(sleepData)} />} />
+        
+          <Route path="/analytics" element={<SleepAnalytics sleepRecords={sleepData} />} />
 
-          {/* заглушка для чату */}
-          <Route path="/chat" element={<div style={{ padding: 20 }}>Чат (порожній)</div>} />
+
+         
+          <Route path="/chat" element={<Chat sleepRecords={sleepData} />} />
+
         </Routes>
 
-        {/* Навігаційна панель завжди внизу */}
+
         <div className="NavBarFull">
           <NavBar />
         </div>

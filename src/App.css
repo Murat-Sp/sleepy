@@ -1,50 +1,44 @@
-*{
+* {
   max-width: 100%;
-
 }
 
-body{
-    overflow-x: hidden;
+body {
+  overflow-x: hidden;
+  background-color: #121212; /* темніший фон */
+  color: #e8e8e8;
+  font-family: 'Inter', sans-serif;
 }
 
-h1{
-  width: 200px;
-}
-
-.headM{
-  display: flex;
-  justify-content: space-between;
-  background-color: #17212B;
-
-}
-
-h1{
-  color: #fff;
+h1 {
+  width: 205px;
+  color: #f5f5f5;
   margin-left: 20px;
 }
 
-img{
-  width: 35px;
-
+/* Header */
+.headM {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1a1a1a;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
-.to{
 
+img {
+  width: 35px;
+}
+
+.to {
   transform: rotate(90deg);
   margin-right: 20px;
 }
 
-.plus{
+.plus {
   transform: rotate(45deg);
-
 }
 
-.imgA{
+.imgA {
   margin-right: 20px;
   margin-top: 2.6vh;
-}
-
-body{
-  background-color: #232E3C;
 }
 
 .avatar {
@@ -53,16 +47,17 @@ body{
   border-radius: 50%;
   object-fit: cover;
   margin-left: 20px;
+  border: 2px solid #2b425f;
 }
 
-.user{
+.user {
   display: flex;
   margin-top: 20px;
   margin-bottom: 30px;
 }
 
-p{
-  color: #fff;
+p {
+  color: #eaeaea;
   align-items: center;
   text-align: center;
   display: inline-flex;
@@ -70,182 +65,186 @@ p{
   font-size: larger;
 }
 
-.line{
+.line {
   width: 95%;
   margin-left: 5.5%;
+  opacity: 0.5;
 }
 
-.mainhome{
+/* Home */
+.mainhome {
   display: flex;
   flex-wrap: wrap;
-   position: relative;
+  position: relative;
   display: inline-block;
 }
 
-.steps{
-    position: absolute;
-    top: 70px;
-    left: 155px;
-    color: #5288C1;
+.steps {
+  position: absolute;
+    top: 16.5vw;
+    left: 34.5vw;
+    color: #4caf50;
+    font-size: 24px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.stepsText {
+  position: absolute;
+    top: 23.5vw;
+    left: 21.5vw;
+    color: #f1f1f1;
     font-size: 24px;
     margin: 0;
 }
 
-.stepsText{
-  position: absolute;
-  top: 106px;
-  left: 88px;
-  color: white;
-  font-size: 24px;
-  margin: 0;
-}
-
-.btnSteps{
+.btnSteps {
   font-size: 20px;
   position: absolute;
-    bottom: -0px;
-    right: 130px;
-    padding: 5px 20px;
-    border: none;
-    background: #5288C1;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    margin: 0;
+  right: 36.5vw;
+  bottom: 7.5vw;
+  padding: 5px 20px;
+  border: none;
+  background: linear-gradient(135deg, #000000, #4caf50);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0;
+  transition: background 0.2s ease;
 }
 
+.btnSteps:hover {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+}
 
-.section img{
-  display:flex;
+/* Sections */
+.section img {
+  display: flex;
   margin-bottom: 10px;
   width: 12%;
 }
 
-.section{
+.section {
   display: flex;
   justify-content: space-around;
 }
 
 .details p {
-  color: #5288C1;
+  color: #4caf50;
   font-weight: 800;
 }
 
-.section p{
-  color: #fff;
+.section p {
+  color: #eaeaea;
   margin: 5px;
   font-weight: 600;
-
 }
 
 #sectionTwo p {
-  color: #b1b0b0;
-
+  color: #a0a0a0;
 }
 
-.details{
+.details {
   margin-top: 40px;
 }
 
-.ScheduleFat{
+.ScheduleFat {
   margin-bottom: 50px;
 }
 
-
-.ScheduleFat button{
-    font-size: 20px;
-    padding: 10px 25px;
-    border: none;
-    background: #5288C1;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    margin: 30px 0 100px 0;
-
+.ScheduleFat button {
+  font-size: 20px;
+  padding: 10px 25px;
+  border: none;
+  background: linear-gradient(135deg, #000000, #4caf50);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 30px 0 100px 0;
+  transition: 0.2s ease;
 }
 
-/* Nav bar base */
+.ScheduleFat button:hover {
+  background: linear-gradient(135deg, #000000, #4caf50);
+}
+
+/* Navbar */
 .navbar {
   position: fixed;
-  bottom: 0px;        /* відступ від низу для естетики */
+  bottom: 0;
   height: 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px;
-  background: #17212b;
-  box-shadow: 0 8px 20px rgba(12, 30, 50, 0.08);
+  background: #121212;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   z-index: 1000;
   width: 100vw;
 }
 
-/* посилання займає місце */
 .nav-link {
   flex: 1;
   text-decoration: none;
 }
 
-/* внутрішній блок кнопки */
 .nav-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  padding: 6px;
+  padding: 10px;
   transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
   border-radius: 10px;
-  color: #333;
+  color: #d1d1d1;
 }
 
-/* іконка */
 .nav-icon {
   width: 28px;
   height: 28px;
   transition: transform 220ms ease, filter 220ms ease;
 }
 
-/* активний стан: масштаб + підсвітка */
 .nav-item.active {
   transform: translateY(-6px);
-  background: rgba(0, 123, 255, 0.08);
-  box-shadow: 0 10px 24px rgba(0, 123, 255, 0.12);
+  background: #1a1a1a;
+  box-shadow: 0 0px 31px rgb(255 255 255 / 18%);
 }
 
 .nav-item.active .nav-icon {
   transform: scale(1.15);
-  filter: drop-shadow(0 8px 18px rgba(0, 123, 255, 0.18));
+  filter: drop-shadow(0 8px 18px rgba(59, 130, 246, 0.4));
 }
 
-/* підпис під іконкою (якщо хочеш показувати) */
 .nav-label {
   font-size: 11px;
   line-height: 1;
-  color: #222;
+  color: #ccc;
   opacity: 0.9;
 }
 
-
+/* Add Page */
 .add-page {
-  background: #0f1a2a; /* темний фон */
-  color: #fff;
+  background: #0f1116;
+  color: #f1f1f1;
   padding: 20px;
   border-radius: 16px;
   max-width: 400px;
   margin: 0 auto;
-  font-family: "Arial", sans-serif;
 }
 
 .add-page h2 {
-  font-size: 20px;
+  font-size: 23px;
   margin-bottom: 15px;
-  color: #fff;
+  color: #e8e8e8;
   text-align: center;
+  font-weight: 700;
 }
 
 .add-page h3 {
   margin-top: 20px;
-  font-size: 16px;
-  color: #6db3ff; /* акцентний синій */
+  font-size: 24px;
+  color: #4caf50;
 }
 
 .add-page label {
@@ -257,19 +256,19 @@ p{
 .add-page input,
 .add-page select,
 .add-page textarea {
-  width: 100%;
+  width: 90%;
   padding: 15px 10px;
   margin-top: 5px;
   border-radius: 8px;
   border: none;
   outline: none;
   font-size: 14px;
-  background: #1b2a44;
+  background: #1a1a1a;
   color: #fff;
 }
 
 .add-page input[type="range"] {
-  width: 100%;
+  width: 89%;
 }
 
 .add-page textarea {
@@ -281,7 +280,7 @@ p{
   width: 100%;
   padding: 12px;
   margin-top: 20px;
-  background: linear-gradient(135deg, #4a90e2, #357ab7);
+  background: linear-gradient(135deg, #000000, #4caf50);
   border: none;
   border-radius: 12px;
   color: #fff;
@@ -292,41 +291,25 @@ p{
 }
 
 .add-page button:hover {
-  background: linear-gradient(135deg, #5aa0f2, #468bd0);
+  background: linear-gradient(135deg, #666666, #53d157);
 }
 
-.mainhome {
-  padding: 16px;
-  text-align: center;
-}
-
-/* Картинка (показується тільки без даних) */
-.line {
-  margin: 20px auto;
-  width: 200px;
-  opacity: 0.7;
-}
-
-/* Порада */
+/* Advice Box */
 .advice-box {
   margin: 12px auto 20px;
   padding: 14px;
   border-radius: 10px;
-  background: #212529;
+  background: #1a1a1a;
   color: #fff;
   text-align: left;
   line-height: 1.4;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
 }
 
 .advice-title {
   font-weight: bold;
   margin: 0 0 8px;
-  color: #4dabf7;
-}
-
-.advice-text {
-  margin: 0 0 6px;
+  color: #4caf50;
 }
 
 .advice-sub {
@@ -334,19 +317,19 @@ p{
   color: #aaa;
 }
 
-/* Блок останнього сну */
+/* Last Sleep Box */
 .last-sleep-box {
-  background: #0f1724;
+  background: #1a1a1a;
   padding: 12px;
   border-radius: 10px;
-  color: #fff;
+  color: #f1f1f1;
   text-align: left;
 }
 
 .last-sleep-title {
   margin: 0 0 6px;
   font-size: 1rem;
-  color: #ffdd57;
+  color: #4caf50;
 }
 
 .last-sleep-box p {
@@ -354,14 +337,20 @@ p{
   font-size: 0.9rem;
 }
 
-#lineId{
+/* IDs */
+#lineId {
   width: 100%;
-  margin: 0;
+  margin-left: 0px;
+}
+.title{
+  text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-
-
-#btnStepsId{
-  right:36.5vw;
-  bottom: 30px;
+.advice-text{
+  margin-left: auto;
 }

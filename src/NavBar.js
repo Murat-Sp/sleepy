@@ -8,7 +8,7 @@ const NavBar = () => {
   const items = [
     { id: "home", to: "/", img: "/png/home.png", imgActive: "/png/home-active.png" },
     { id: "add", to: "/add", img: "/png/plus.png", imgActive: "/png/plus-active.png" },
-    { id: "stats", to: "/stats", img: "/png/stats.png", imgActive: "/png/stats-active.png" },
+    { id: "analytics", to: "/analytics", img: "/png/stats.png", imgActive: "/png/stats-active.png" },
     { id: "chat", to: "/chat", img: "/png/chat.png", imgActive: "/png/chat-active.png" }
   ];
 
