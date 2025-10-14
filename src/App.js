@@ -1,7 +1,6 @@
-// src/App.js
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, Link, Navigate } from "react-router-dom";
 import NavBar from "./NavBar";
 import Details from "./Details";
 import Schedule from "./Schedule";
@@ -9,19 +8,45 @@ import MainHome from "./MainHome";
 import AddSleep from "./AddPage";
 import SleepAnalytics from "./Analytics";
 import Chat from "./chat";
+import AddUser from "./AddUserPage";
+import Login from "./Login";
+import Profile from "./UserPage";
+import { UserContext } from "./UserContext";
 
+function AppContent() {
+  const location = useLocation();
+  const { user, setUser } = useContext(UserContext);
+  const [sleepData, setSleepData] = useState([]);
 
-
-
-export default function App() {
-  const [sleepData, setSleepData] = useState([]); 
-
+  useEffect(() => {
+    console.log("[AppContent] location:", location.pathname, "context user:", user);
+    if (!user) {
+      try {
+        const raw = localStorage.getItem("user");
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          console.log("[AppContent] syncing user from localStorage:", parsed);
+          setUser(parsed);
+        }
+      } catch (e) {
+        console.error("[AppContent] cannot read localStorage user", e);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
 
   const addSleepRecord = (record) => {
-    setSleepData((prev) => [...prev, record]);
+    setSleepData((prev) => {
+      const next = [...prev, record];
+      try {
+        localStorage.setItem("sleepRecords", JSON.stringify(next));
+      } catch (e) {
+        console.error("Failed write sleepRecords to localStorage", e);
+      }
+      return next;
+    });
   };
 
-  
   const convertToSlides = (data) => {
     if (!data || data.length === 0) {
       return [
@@ -38,7 +63,6 @@ export default function App() {
         label: "Час засипання (години)",
         labels,
         data: data.map((d) => {
-          
           if (!d.bedtime) return null;
           const [hh, mm] = d.bedtime.split(":").map(Number);
           return +(hh + mm / 60).toFixed(2);
@@ -49,29 +73,29 @@ export default function App() {
         id: "sleepHours",
         label: "Тривалість сну (год.)",
         labels,
-        data: data.map((d) => d.duration || 0),
+        data: data.map((d) => Number(d.duration) || 0),
         borderColor: "green",
       },
       {
         id: "sleepQuality",
         label: "Якість сну (%)",
         labels,
-        data: data.map((d) => d.qualityPercent || 0),
+        data: data.map((d) => Number(d.qualityPercent) || 0),
         borderColor: "purple",
       },
     ];
   };
 
+  const hideNav = location.pathname === "/" || location.pathname.startsWith("/addUser");
+
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          {}
-          <Route
-            path="/"
-            element={
+    <div className="App">
+      <Routes>
+        <Route
+          path="/Home"
+          element={
+            user ? (
               <>
-                {}
                 <div className="headM">
                   <h1>Sleepy</h1>
                   <div className="imgA">
@@ -85,17 +109,21 @@ export default function App() {
                 </div>
 
                 <div className="user">
-                  <img className="avatar" src="/png/ava.jpg" alt="avatar" />
-                  <p>Hi User</p>
+                  <Link to={`/profile/${user?.id}`}>
+                    <img
+                      className="avatar"
+                      src={`http://localhost:5008/uploads/${user?.photo}`}
+                      alt="avatar"
+                    />
+                  </Link>
+                  <p>
+                    {user?.name} {user?.lastName}
+                  </p>
                 </div>
 
-                {}
                 <MainHome sleepData={sleepData} />
-
-                {}
                 <Details slides={convertToSlides(sleepData)} />
 
-                {}
                 <div className="ScheduleFat">
                   <div className="Schedule"></div>
                   <div style={{ textAlign: "center", fontFamily: "Arial" }}>
@@ -104,26 +132,33 @@ export default function App() {
                   </div>
                 </div>
               </>
-            }
-          />
+            ) : (
+              <Navigate to="/" replace />
+            )
+          }
+        />
 
-          
-          <Route path="/add" element={<AddSleep addSleepRecord={addSleepRecord} />} />
+        <Route path="/addUser" element={<AddUser />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/add" element={<AddSleep addSleepRecord={addSleepRecord} />} />
+        <Route path="/analytics" element={<SleepAnalytics sleepRecords={sleepData} />} />
+        <Route path="/chat" element={<Chat sleepRecords={sleepData} />} />
+      </Routes>
 
-        
-          <Route path="/analytics" element={<SleepAnalytics sleepRecords={sleepData} />} />
-
-
-         
-          <Route path="/chat" element={<Chat sleepRecords={sleepData} />} />
-
-        </Routes>
-
-
+      {!hideNav && (
         <div className="NavBarFull">
           <NavBar />
         </div>
-      </div>
+      )}
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }
