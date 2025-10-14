@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "Hash": "wIlZWAdms57YSjsix+MmzzKqcJHeVcGk4+qCgAp/44I=",
+  "Source": "Myapi",
+  "BasePath": "_content/Myapi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Myapi\\wwwroot",
+      "Source": "Myapi",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\",
+      "BasePath": "_content/Myapi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\9a060d29-b360-45cc-9e79-ecab5d3f9891_Машинка.png",
+      "SourceId": "Myapi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\",
+      "BasePath": "_content/Myapi",
+      "RelativePath": "uploads/9a060d29-b360-45cc-9e79-ecab5d3f9891_Машинка.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\9a060d29-b360-45cc-9e79-ecab5d3f9891_Машинка.png"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\a7649fbb-4f29-491e-b16c-c86b306ed5ec_завантаження (1).jpg",
+      "SourceId": "Myapi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\",
+      "BasePath": "_content/Myapi",
+      "RelativePath": "uploads/a7649fbb-4f29-491e-b16c-c86b306ed5ec_завантаження (1).jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\a7649fbb-4f29-491e-b16c-c86b306ed5ec_завантаження (1).jpg"
+    }
+  ]
+}
