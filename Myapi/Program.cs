@@ -2,6 +2,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Додаємо сервіси
 builder.Services.AddSingleton<UserService>();
+builder.Services.AddSingleton<AdditionalInfoService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -10,10 +10,10 @@ public class Users
     public string Name { get; set; } = "";
 
     [BsonElement("lastName")]
-    public string LastName { get; set; }
+    public string?LastName { get; set; }
 
     [BsonElement("email")]
-    public string Email { get; set; }
+    public string?Email { get; set; }
 
     [BsonElement("age")]
     public int Age { get; set; }
@@ -25,11 +25,11 @@ public class Users
     public int Height { get; set; }
 
     [BsonElement("password")]
-    public string Password { get; set; }
+    public string? Password { get; set; }
     [BsonElement("photo")]
     public string? Photo { get; set; } = "avatar.jpg";
 
-    [BsonElement("additionalInformation")]
-    public AdditionalInformation? AdditionalInformation { get; set; }
+    [BsonRepresentation(BsonType.ObjectId)]
+    public string? AdditionalInfoId { get; set; }
 
 }

@@ -31,8 +31,7 @@ public class LoginController : ControllerBase
         if (!isValid)
             return Unauthorized("Невірний пароль");
 
-                HttpContext.Session.SetString("Name", user.Name);
-                HttpContext.Session.SetString("LastName", user.LastName);
+                   HttpContext.Session.SetString("UserEmail", user.Email);
             return Ok(
               user);
         }

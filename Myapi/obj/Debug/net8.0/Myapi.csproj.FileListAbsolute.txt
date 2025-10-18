@@ -176,3 +176,4 @@ C:\Users\Admin\Desktop\kyrsova\Myapi\bin\Debug\net8.0\SharpCompress.dll
 C:\Users\Admin\Desktop\kyrsova\Myapi\bin\Debug\net8.0\Snappier.dll
 C:\Users\Admin\Desktop\kyrsova\Myapi\bin\Debug\net8.0\ZstdSharp.dll
 C:\Users\Admin\Desktop\kyrsova\Myapi\bin\Debug\net8.0\Myapi.staticwebassets.runtime.json
+C:\Users\Admin\Desktop\kyrsova\Myapi\obj\Debug\net8.0\Myapi.sourcelink.json

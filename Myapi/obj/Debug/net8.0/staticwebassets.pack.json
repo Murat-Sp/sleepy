@@ -1,12 +1,32 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\18228cd0-5b3a-4334-976a-f9c6ae542184_завантаження (1).jpg",
+      "PackagePath": "staticwebassets\\uploads\\18228cd0-5b3a-4334-976a-f9c6ae542184_завантаження (1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\62667b4d-9e7a-4578-b25a-93d38648adda_завантаження (1).jpg",
+      "PackagePath": "staticwebassets\\uploads\\62667b4d-9e7a-4578-b25a-93d38648adda_завантаження (1).jpg"
+    },
+    {
       "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\9a060d29-b360-45cc-9e79-ecab5d3f9891_Машинка.png",
       "PackagePath": "staticwebassets\\uploads\\9a060d29-b360-45cc-9e79-ecab5d3f9891_Машинка.png"
     },
     {
+      "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\9ad50a78-f22f-4336-833b-2c27d501ed61_Background.png",
+      "PackagePath": "staticwebassets\\uploads\\9ad50a78-f22f-4336-833b-2c27d501ed61_Background.png"
+    },
+    {
       "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\a7649fbb-4f29-491e-b16c-c86b306ed5ec_завантаження (1).jpg",
       "PackagePath": "staticwebassets\\uploads\\a7649fbb-4f29-491e-b16c-c86b306ed5ec_завантаження (1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\avatar.jpg",
+      "PackagePath": "staticwebassets\\uploads\\avatar.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\ea1cbb87-f51e-42dd-935a-8b0118c35893_Background (1).png",
+      "PackagePath": "staticwebassets\\uploads\\ea1cbb87-f51e-42dd-935a-8b0118c35893_Background (1).png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Myapi.Microsoft.AspNetCore.StaticWebAssets.props",
