@@ -1,0 +1,172 @@
+.Loginbox {
+  max-width: 400px;
+  margin: 70px auto;
+  background-color: #121212;
+  padding: 30px 25px 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.2);
+  color: #f1f1f1;
+  font-family: 'Poppins', sans-serif;
+  animation: fadeIn 0.5s ease-in;
+  margin-top: 30%;
+}
+
+.Enter {
+  text-align: center;
+  color: #6c63ff;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  margin: 0px auto 25px auto;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.log-lable {
+  color: #aaa;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.input-log {
+  padding: 10px 12px;
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: #f1f1f1;
+  font-size: 0.95rem;
+  transition: border 0.3s ease, background 0.3s ease;
+  padding: 10px 38px 10px 12px;
+}
+
+.input-log:focus {
+  outline: none;
+  border-color: #6c63ff;
+  background-color: #262626;
+} 
+.log-button {
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px rgba(108, 99, 255, 0.3);
+}
+
+.log-button:hover {
+  background-color: #7b74ff;
+  box-shadow: 0 0 18px rgba(108, 99, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+.discribe-log {
+  text-align: center;
+  color: #bbb;
+  margin-top: 18px;
+  font-size: 0.9rem;
+}
+
+.link-log {
+  color: #6c63ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.link-log:hover {
+  color: #837bff;
+}
+
+.discribe-log{
+    display: flex;
+    justify-content: center;
+    margin-left: 0;
+}
+
+.link-log{
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .Loginbox {
+    margin: 30px 10px;
+    padding: 20px 15px 30px;
+
+  }
+
+  .Enter {
+    font-size: 1.5rem;
+  }
+
+  .log-button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
+
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.valid:focus {
+ background-color: #262626;
+  border: 1px solid rgb(52, 245, 52);
+  border-color: rgb(52, 245, 52);
+  /* border-radius: 10px;
+  color: #f1f1f1;
+  font-size: 0.95rem; */
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.invalid:focus {
+  border: 1px solid rgb(147, 10, 22);
+  background-color: #262626;
+  border-color: rgb(147, 10, 22);
+  /* border-radius: 10px;
+  color: #f1f1f1;
+  font-size: 0.95rem; */
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.password-rules{
+  list-style: none;
+  font-size: 12px;
+  margin-top: -40px;
+  margin-left: -10px;
+}
+.valid-message{
+  color: rgb(52, 245, 52);
+  margin-bottom: 5px;
+}
+.invalid-message{
+  color:rgb(147, 10, 22);
+  margin-bottom: 5px;
+}
+/* .log-button-inactive{
+  background-color: #ff6363;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px rgba(108, 99, 255, 0.3);
+  user-select: none;
+} */
