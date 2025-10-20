@@ -24,6 +24,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  position: relative;
 }
 
 .log-lable {
@@ -68,10 +69,10 @@
 }
 
 .discribe-log {
-  text-align: center;
   color: #bbb;
   margin-top: 18px;
   font-size: 0.9rem;
+  margin-left: 120px;
 }
 
 .link-log {
@@ -86,15 +87,15 @@
 }
 
 .discribe-log{
-    display: flex;
-    justify-content: center;
-    margin-left: 0;
+    /* display: flex;
+    justify-content: center; */
+    margin-left: 70px;
 }
 
 .link-log{
     justify-content: center;
     display: flex;
-    margin: 0 auto;
+    margin-left: 5px;
 }
 
 @media (max-width: 480px) {
@@ -121,52 +122,10 @@
   from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.valid:focus {
- background-color: #262626;
-  border: 1px solid rgb(52, 245, 52);
-  border-color: rgb(52, 245, 52);
-  /* border-radius: 10px;
-  color: #f1f1f1;
-  font-size: 0.95rem; */
-  box-sizing: border-box;
-  outline: none;
-  transition: border-color 0.15s;
-}
-.invalid:focus {
-  border: 1px solid rgb(147, 10, 22);
-  background-color: #262626;
-  border-color: rgb(147, 10, 22);
-  /* border-radius: 10px;
-  color: #f1f1f1;
-  font-size: 0.95rem; */
-  box-sizing: border-box;
-  outline: none;
-  transition: border-color 0.15s;
-}
-.password-rules{
-  list-style: none;
-  font-size: 12px;
-  margin-top: -40px;
-  margin-left: -10px;
-}
-.valid-message{
-  color: rgb(52, 245, 52);
-  margin-bottom: 5px;
-}
-.invalid-message{
-  color:rgb(147, 10, 22);
-  margin-bottom: 5px;
-}
-/* .log-button-inactive{
-  background-color: #ff6363;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  padding: 12px;
-  font-size: 1rem;
-  font-weight: 600;
-  margin-top: 10px;
-  transition: 0.3s ease;
-  box-shadow: 0 0 12px rgba(108, 99, 255, 0.3);
-  user-select: none;
-} */
+#eye{
+  position: absolute; 
+  cursor: pointer;
+  color: gray;
+  bottom: 112px;
+  transform: translateX(370px
+  );}

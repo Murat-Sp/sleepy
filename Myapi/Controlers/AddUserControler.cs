@@ -22,10 +22,15 @@ public async Task<IActionResult> CreateUser([FromBody] Users user)
         return BadRequest(ModelState);
     var passwordService = new PasswordService();
     string hashedPassword = passwordService.HashPassword(user.Password);
-    user.Password = hashedPassword;
+        user.Password = hashedPassword;
+        var IsCreateUser = await _userService.GetByEmailAsync(user.Email);
+        if (IsCreateUser != null)
+        {
+            return BadRequest(new { message = "Користувач з таким емейлом вже існує",isCreate = true});
+        }
     var created = await _userService.CreateAsync(user);
 
-    return Ok(new { message = "✅ Дані збережено", user = created });
+    return Ok(new { message = "✅ Дані збережено",isCreate = false,user = created});
 }
 
 }

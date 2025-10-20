@@ -7,32 +7,14 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setUser } = useContext(UserContext);
+  const [showPassword,setShowPassword]=useState(false);
   const navigate = useNavigate();
-  const [isCorrect, setIsCorrect] = useState(null);
-  const [isCorrectLength, setIsCorrectLength] = useState(null);
-  const [registerIsCorect, setRegisterIsCorect] = useState(null);
-  const [numIsCorect, setNumIsCorect] = useState(null);
-   const checkPassword = (value) => {
-    const valid = value.length >= 6 && /[A-Z]/.test(value) && /\d/.test(value);
-    setIsCorrect(valid);
-    if(value.length >= 6){
-         setIsCorrectLength(true)
-    }
-    else{
-      setIsCorrectLength(false);
-    }
-    if(/[A-Z]/.test(value)){
-         setRegisterIsCorect(true)
-    }else{
-        setRegisterIsCorect(false);
-    }
-    if(/\d/.test(value))
-       setNumIsCorect(true)
-    else{
-      setNumIsCorect(false)
-    }
-  };
-
+  const ShowPassword = (e)=>{
+    setShowPassword(true)
+  }
+  const hidePassword = (e)=>{
+    setShowPassword(false)
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -86,18 +68,14 @@ export default function Login() {
 
         <label className="log-lable">Пароль</label><br/>
         <input 
-          type="password"
+          type={showPassword?"text":"password"}
           value={password}
-          onChange={(e) => {setPassword(e.target.value);checkPassword(e.target.value);}}
-          className={isCorrect === null ? 'input-logc' : isCorrect ? 'valid' : 'invalid'}
+          onChange={(e) => {setPassword(e.target.value)}}
+          className="input-log"
           required
         />
+        {showPassword?<i class="fa-solid fa-eye-slash" id="eye" onClick={hidePassword}></i>: <i class="fa-solid fa-eye" id="eye" onClick={ShowPassword}></i> }
         <br/>
-        <ul className="password-rules">
-            <li className={isCorrectLength ? "valid-message":"invalid-message"}>Пароль повинен містити не менше 6 символів</li>
-            <li className={registerIsCorect ? "valid-message":"invalid-message"}>Пароль повинен складатись хоча б із однієї великої літери</li>
-            <li className={numIsCorect ? "valid-message":"invalid-message"}>Пароль повинен містити хочаб 1 цифру</li>
-       </ul>
         <button className="log-button" type="submit">Увійти</button>
       </form>
 

@@ -1,6 +1,6 @@
 
 import { useNavigate, useParams } from "react-router-dom";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import "./UserPage.css";
 
 export default function UsersPage() {
@@ -146,7 +146,7 @@ const handleLogOut = async (e)=>{
       const data = await response.json();
       alert(data.message);
     }
-    navigate("/");
+    // navigate("/");
 };
   return (
     <div className="main-user-info">
@@ -213,7 +213,7 @@ const handleLogOut = async (e)=>{
           оновити зображення
         </button>
       </form>
-    <a  className="log-out" onClick={handleLogOut}>Вийти з акаунту</a>
+     <a href="/" className="log-out" onClick={handleLogOut}>Вийти з акаунту</a>
      <button type="submit" className="user-button" onClick={handleDelete}>Видалити акаунт</button>
     </div>
   );
