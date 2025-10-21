@@ -84,7 +84,7 @@ function AppContent() {
       id: "sleepQuality",
       label: "Якість сну (%)",
       labels,
-      data: additionalInfo.map((d) => Number(d.QualityPercent) || 0),
+      data: additionalInfo.map((d) => Number(d.qualityPercent) || 0),
       borderColor: "purple",
     },
   ];
