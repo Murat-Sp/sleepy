@@ -1,11 +1,11 @@
 // src/AddSleep.js
 import React, { useState,useContext} from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { UserContext } from "./UserContext";
 import "./AddSleep.css";
 
 export default function AddSleep({ addSleepRecord }) {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const {user,setAdditionalInfo}= useContext(UserContext);
   // const { id } = useParams()
   const [bedtime, setBedtime] = useState("");
@@ -60,6 +60,7 @@ export default function AddSleep({ addSleepRecord }) {
   };
 
 const handleSubmit = async (e) => {
+  // e.preventDefault()
   if (!bedtime || !wakeTime) {
     setShowModal(true);
     return;
@@ -70,7 +71,7 @@ const handleSubmit = async (e) => {
     return;
   }
   console.log(user)
-if (!bedtime || !wakeTime || !user?.id) {
+if (!bedtime || !wakeTime || !user.id) {
   alert("Заповніть обов'язкові поля!");
   return;
 }
@@ -93,7 +94,7 @@ const tempRecord = {
   LastMeal: lastMeal ? Number(lastMeal.split(":")[0]) : 0, 
   Dreams: dreams,
   Notes: notes,
-  UserId: user.id,
+  UserId: user.Id,
 };
 const qualityPercent = computeQualityPercent(tempRecord);
 const qualityScale = Math.max(1, Math.round(qualityPercent / 10));
@@ -103,7 +104,7 @@ const record = {
   QualityScale:qualityScale
 };
 try {
-    const res = await fetch(`http://localhost:5008/api/AdditionalInfo/${user.id}`, {
+    const res = await fetch(`http://localhost:5008/api/AdditionalInfo`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",

@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, use } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, useLocation, Link, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, Link, Navigate, useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 import Details from "./Details";
 import Schedule from "./Schedule";
@@ -11,44 +11,87 @@ import Chat from "./chat";
 import AddUser from "./AddUserPage";
 import Login from "./Login";
 import Profile from "./UserPage";
+import Restore from "./Restore"
 import { UserContext } from "./UserContext";
 
 function AppContent() {
   const location = useLocation();
   const { user, setUser, additionalInfo , setAdditionalInfo } = useContext(UserContext);
-  useEffect(() => {
-    console.log("[AppContent] location:", location.pathname, "context user:", user);
-     const fetchSleepData = async () => {
-      try {
-        const response = await fetch(`http://localhost:5008/api/AdditionalInfo/allInfo/${user.id}`);
-        if (!response.ok) {
-          throw new Error("Помилка при отриманні даних");
-        }
+  const navigate = useNavigate();
+useEffect(() => {
+    if (location.pathname === "/" || location.pathname === "/addUser"|| location.pathname === "/restore") {
+    return; 
+  }
+  let isActive = true;
 
-        const data = await response.json();
-        setAdditionalInfo(Array.isArray(data) ? data : [data]);
-      } catch (error) {
-        console.error("❌ Помилка запиту:", error);
-      }
-    };
+  const fetchUser = async () => {
+    try {
+      const res = await fetch("http://localhost:5008/api/UserPage/user", {
+        method: "GET",
+        credentials: "include",
+      });
 
-    fetchSleepData();
-    console.log(additionalInfo)
-    if (!user) {
-      try {
-        const raw = localStorage.getItem("user");
-        if (raw) {
-          const parsed = JSON.parse(raw);
-          console.log("[AppContent] syncing user from localStorage:", parsed);
-          setUser(parsed);
-        }
-      } catch (e) {
-        console.error("[AppContent] cannot read localStorage user", e);
+      if (!isActive) return;
+      if (res.status === 401) {
+        navigate("/", { replace: true });
+        return;
       }
+
+      if (!res.ok) throw new Error("Помилка при отриманні даних");
+
+      const data = await res.json();
+      console.log("✅ Дані користувача:", data);
+
+      if (!data || !data.user) {
+        navigate("/", { replace: true });
+        return;
+      }
+
+      setUser(data.user);
+    } catch (err) {
+      console.error("❌ Помилка при отриманні користувача:", err);
+      if (isActive) navigate("/", { replace: true });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.pathname]);
+  };
 
+  fetchUser();
+
+  return () => {
+    isActive = false;
+  };
+}, [navigate]);
+
+useEffect(() => {
+  
+  if (!user) return;
+   if (location.pathname === "/" || location.pathname === "/addUser" || location.pathname === "/restore") {
+    return; } // Не вантажимо дані, поки користувач не визначений
+
+  const fetchSleepData = async () => {
+    try {
+      const res = await fetch("http://localhost:5008/api/AdditionalInfo/allInfo", {
+        method: "GET",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (res.status === 401) {
+        navigate("/", { replace: true });
+        return;
+      }
+
+      if (!res.ok) throw new Error("Помилка при отриманні даних");
+
+      const data = await res.json();
+      setAdditionalInfo(Array.isArray(data) ? data : [data]);
+      console.log("📊 Дані про сон:", data);
+    } catch (err) {
+      console.error("❌ Помилка при отриманні даних про сон:", err);
+    }
+  };
+
+  fetchSleepData();
+}, [user, navigate]);
  const convertToSlides = (additionalInfo) => {
   const infoArray = Array.isArray(additionalInfo) ? additionalInfo : [];
   if (!additionalInfo || additionalInfo.length === 0) {
@@ -84,14 +127,14 @@ function AppContent() {
       id: "sleepQuality",
       label: "Якість сну (%)",
       labels,
-      data: additionalInfo.map((d) => Number(d.QualityPercent) || 0),
+      data: additionalInfo.map((d) => Number(d.qualityPercent) || 0),
       borderColor: "purple",
     },
   ];
 };
 
 
-  const hideNav = location.pathname === "/" || location.pathname.startsWith("/addUser");
+  const hideNav = location.pathname === "/" || location.pathname === "/restore" || location.pathname.startsWith("/addUser");
 
   return (
     <div className="App">
@@ -114,7 +157,7 @@ function AppContent() {
                 </div>
 
                 <div className="user">
-                  <Link to={`/profile/${user?.id}`}>
+                  <Link to={`/profile/${user?.Id}`}>
                     <img
                       className="avatar"
                       src={`http://localhost:5008/uploads/${user?.photo}`}
@@ -145,6 +188,7 @@ function AppContent() {
 
         <Route path="/addUser" element={<AddUser />} />
         <Route path="/" element={<Login />} />
+        <Route path="/restore" element={<Restore />}/>
         <Route path="/profile/:id" element={<Profile />} />
         <Route path="/add" element={<AddSleep />} />
         <Route path="/analytics" element={<SleepAnalytics additionalInfoRecords={additionalInfo} />} />

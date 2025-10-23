@@ -1,11 +1,11 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\18228cd0-5b3a-4334-976a-f9c6ae542184_завантаження (1).jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\3e28a70a-69d7-441c-af9b-2b8e011a9b6f_Background.png))">
       <SourceType>Package</SourceType>
       <SourceId>Myapi</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Myapi</BasePath>
-      <RelativePath>uploads/18228cd0-5b3a-4334-976a-f9c6ae542184_завантаження (1).jpg</RelativePath>
+      <RelativePath>uploads/3e28a70a-69d7-441c-af9b-2b8e011a9b6f_Background.png</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -14,14 +14,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\18228cd0-5b3a-4334-976a-f9c6ae542184_завантаження (1).jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\3e28a70a-69d7-441c-af9b-2b8e011a9b6f_Background.png))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\62667b4d-9e7a-4578-b25a-93d38648adda_завантаження (1).jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\5ae9223b-e634-4281-9ef2-448ff4761cc2_check.png))">
       <SourceType>Package</SourceType>
       <SourceId>Myapi</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Myapi</BasePath>
-      <RelativePath>uploads/62667b4d-9e7a-4578-b25a-93d38648adda_завантаження (1).jpg</RelativePath>
+      <RelativePath>uploads/5ae9223b-e634-4281-9ef2-448ff4761cc2_check.png</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -30,14 +30,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\62667b4d-9e7a-4578-b25a-93d38648adda_завантаження (1).jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\5ae9223b-e634-4281-9ef2-448ff4761cc2_check.png))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\81842572-6a34-4b9f-b627-9bbe2b94ddb1_Background.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\6ddd25b9-a942-4180-9741-b719ea9d1eff_cancel.png))">
       <SourceType>Package</SourceType>
       <SourceId>Myapi</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Myapi</BasePath>
-      <RelativePath>uploads/81842572-6a34-4b9f-b627-9bbe2b94ddb1_Background.png</RelativePath>
+      <RelativePath>uploads/6ddd25b9-a942-4180-9741-b719ea9d1eff_cancel.png</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -46,14 +46,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\81842572-6a34-4b9f-b627-9bbe2b94ddb1_Background.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\6ddd25b9-a942-4180-9741-b719ea9d1eff_cancel.png))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\9a060d29-b360-45cc-9e79-ecab5d3f9891_Машинка.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\6ef7a86b-f903-4646-95c7-a17a345577cd_cancel.png))">
       <SourceType>Package</SourceType>
       <SourceId>Myapi</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Myapi</BasePath>
-      <RelativePath>uploads/9a060d29-b360-45cc-9e79-ecab5d3f9891_Машинка.png</RelativePath>
+      <RelativePath>uploads/6ef7a86b-f903-4646-95c7-a17a345577cd_cancel.png</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -62,14 +62,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\9a060d29-b360-45cc-9e79-ecab5d3f9891_Машинка.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\6ef7a86b-f903-4646-95c7-a17a345577cd_cancel.png))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\9ad50a78-f22f-4336-833b-2c27d501ed61_Background.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a3d25ef6-d18e-4046-8545-8bc8a85fc273_check.png))">
       <SourceType>Package</SourceType>
       <SourceId>Myapi</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Myapi</BasePath>
-      <RelativePath>uploads/9ad50a78-f22f-4336-833b-2c27d501ed61_Background.png</RelativePath>
+      <RelativePath>uploads/a3d25ef6-d18e-4046-8545-8bc8a85fc273_check.png</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -78,14 +78,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\9ad50a78-f22f-4336-833b-2c27d501ed61_Background.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a3d25ef6-d18e-4046-8545-8bc8a85fc273_check.png))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a7649fbb-4f29-491e-b16c-c86b306ed5ec_завантаження (1).jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\ae321b52-aa00-463d-a9c4-2ab4b6c4ea05_ChatGPT Image 26 вер. 2025 р., 12_04_06.png))">
       <SourceType>Package</SourceType>
       <SourceId>Myapi</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Myapi</BasePath>
-      <RelativePath>uploads/a7649fbb-4f29-491e-b16c-c86b306ed5ec_завантаження (1).jpg</RelativePath>
+      <RelativePath>uploads/ae321b52-aa00-463d-a9c4-2ab4b6c4ea05_ChatGPT Image 26 вер. 2025 р., 12_04_06.png</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -94,7 +94,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a7649fbb-4f29-491e-b16c-c86b306ed5ec_завантаження (1).jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\ae321b52-aa00-463d-a9c4-2ab4b6c4ea05_ChatGPT Image 26 вер. 2025 р., 12_04_06.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\avatar.jpg))">
       <SourceType>Package</SourceType>
@@ -111,6 +111,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\avatar.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\d49c4062-20f7-4a14-b073-937afe48fc6c_Background.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Myapi</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Myapi</BasePath>
+      <RelativePath>uploads/d49c4062-20f7-4a14-b073-937afe48fc6c_Background.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\d49c4062-20f7-4a14-b073-937afe48fc6c_Background.png))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

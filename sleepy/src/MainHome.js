@@ -16,9 +16,9 @@ const getAdviceTextFromQuality = (pct) => {
   return "Якість сну низька. Спробуй знизити стрес та уникати кофеїну ввечері.";
 };
 
-export default function MainHome({ sleepData }) {
+export default function MainHome({ additionalInfo }) {
   const navigate = useNavigate();
-  const last = sleepData && sleepData.length ? sleepData[sleepData.length - 1] : null;
+  const last = additionalInfo && additionalInfo.length ? additionalInfo[additionalInfo.length - 1] : null;
 
   return (
     <div className="mainhome">

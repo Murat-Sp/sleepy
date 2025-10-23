@@ -30,18 +30,21 @@ export default function Login() {
         return;
       }
 
-      const data = await response.json();
-
-      console.log("[Login] server user:", data);
-
-      try {
-        localStorage.setItem("user", JSON.stringify(data));
-        console.log("[Login] saved to localStorage");
-      } catch (e) {
-        console.error("[Login] cannot save to localStorage", e);
+      const data = await response.json(); 
+      if(data.loggedIn){
+        console.log("сесія створена")
       }
+      console.log("[Login] server user:", data.user);
+      setUser(data.user)
 
-      setUser(data);
+      // try {
+      //   localStorage.setItem("user", JSON.stringify(data.user));
+      //   console.log("[Login] saved to localStorage");
+      // } catch (e) {
+      //   console.error("[Login] cannot save to localStorage", e);
+      // }
+
+      // setUser(data.user);
 
       // невелика затримка щоб бути впевненим, що контекст оновився
       setTimeout(() => {
@@ -74,7 +77,8 @@ export default function Login() {
           className="input-log"
           required
         />
-        {showPassword?<i class="fa-solid fa-eye-slash" id="eye" onClick={hidePassword}></i>: <i class="fa-solid fa-eye" id="eye" onClick={ShowPassword}></i> }
+        {showPassword?<i className="fa-solid fa-eye-slash" id="eye" onClick={hidePassword}></i>: <i className="fa-solid fa-eye" id="eye" onClick={ShowPassword}></i> }
+        <a href="/restore" className="link-log">Забули пароль?</a>
         <br/>
         <button className="log-button" type="submit">Увійти</button>
       </form>

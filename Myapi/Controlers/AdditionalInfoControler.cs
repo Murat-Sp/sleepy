@@ -15,38 +15,43 @@ public class AdditionalInfo : ControllerBase
         _additionalService = additionalService;
     }
 
-    [HttpPost("{id}")]
-    public async Task<IActionResult> CreateAdditionalInfo(string id, [FromBody] AdditionalInformation additional)
+    [HttpPost()]
+    public async Task<IActionResult> CreateAdditionalInfo([FromBody] AdditionalInformation additional)
     {
-        var user = await _userService.GetByIdAsync(id);
-        if (user == null)
-            return NotFound("Користувача не знайдено");
-        additional.UserId = id;
+        var userJson = HttpContext.Session.GetString("UserData");
+        if (userJson == null)
+            return Unauthorized();
+         var userData = JsonSerializer.Deserialize<Users>(userJson);
+        additional.UserId =userData.Id;
         var createdInfo = await _additionalService.CreateAsync(additional);
-        user.AdditionalInfoId = createdInfo.Id;
+        userData.AdditionalInfoId = createdInfo.Id;
 
-        await _userService.UpdateAsync(user.Id, user);
+        await _userService.UpdateAsync(userData.Id, userData);
         var allInfo = await _additionalService.GetAllAsync();
         var infoByOneUser = new List<AdditionalInformation>();
 
         foreach (var i in allInfo)
         {
-            if (i.UserId == user.Id)
+            if (i.UserId == userData.Id)
             {
                 infoByOneUser.Add(i);
             }
         }
         return Ok(new { message = "Інформацію збережено", additionalInfo = infoByOneUser });
     }
-[HttpGet("allInfo/{id}")]
-public async Task<IActionResult> GetAllInfo(string id)
-    {   var user = await _userService.GetByIdAsync(id);
+    [HttpGet("allInfo")]
+    public async Task<IActionResult> GetAllInfo()
+    {
+        var userJson = HttpContext.Session.GetString("UserData");
+        if (userJson == null) 
+        return Unauthorized();
+        var userData = JsonSerializer.Deserialize<Users>(userJson);
           var allInfo = await _additionalService.GetAllAsync();
         var infoByOneUser = new List<AdditionalInformation>();
 
         foreach (var i in allInfo)
         {
-            if (i.UserId == user.Id)
+            if (i.UserId == userData.Id)
             {
                 infoByOneUser.Add(i);
             }

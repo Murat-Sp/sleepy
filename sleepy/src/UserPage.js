@@ -1,68 +1,87 @@
 
 import { useNavigate, useParams } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
+import { UserContext } from "./UserContext";
 import "./UserPage.css";
 
 export default function UsersPage() {
   const { id } = useParams();
   const [photo, setPhoto] = useState(null);
-  const [User, setUserPage] = useState(null);
+  const {user,setUser} = useContext(UserContext);
   const [newName,setNewName]=useState(null);
   const [newLastName,setNewLastName]=useState(null);
   const [newEmail,setNewEmail]=useState(null);
   const [repeatPassword,setRepeatPassword]=useState(null);
   const [newPassword,setNewPassword]=useState(null);
+  // const [User,setUser]=useState(null);
   const navigate = useNavigate();
   useEffect(() => {
-    if (!id) return;
-
-    console.log("ID користувача з URL:", id);
-
-    fetch(`http://localhost:5008/api/UserPage/${id}`, {
+    fetch(`http://localhost:5008/api/UserPage/user`, {
       method: "GET",
       credentials: "include",
     })
       .then((res) => {
-        if (!res.ok) throw new Error("Помилка при отриманні даних");
+        if (!res.ok){
+          throw new Error("Помилка при отриманні даних");
+        }
+        if(res.status===401)navigate("/");
         return res.json();
       })
       .then((data) => {
-        console.log("Дані користувача:", data);
-        setUserPage(data);
+        console.log("Дані користувача:", data.user);
+        setUser(data.user);
+        if(data.loggedIn){
+          console.log("Сесія активна")
+        }
       })
       .catch((err) => console.error(err));
-}, [id]);
+  }, []);
 const handleSubmit = async (e) => {
-    // e.preventDefault();
-    if (!photo) {
-      alert("Оберіть файл");
-      return;
+  // e.preventDefault(); // краще залишити, якщо це форма
+
+  if (!photo) {
+    alert("Оберіть файл");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("photo", photo);
+
+  try {
+    const res = await fetch("http://localhost:5008/api/UserPage/setPhoto", {
+      method: "PUT",
+      body: formData,
+      credentials: "include",
+    });
+    const responseText = await res.text();
+    let data;
+    try {
+      data = JSON.parse(responseText);
+    } catch {
+      data = null;
     }
 
-    const formData = new FormData();
-    formData.append("photo", photo);
+    if (res.ok) {
+      console.log("Сервер повернув:", data || responseText);
 
-    try {
-      const res = await fetch(
-        `http://localhost:5008/api/UserPage/setPhoto/${id}`,
-        {
-          method: "PUT",
-          body: formData,
-        }
-      );
+      if (data?.message) alert(data.message);
+      if (data?.userData) setUser(data.userData);
 
-      if (res.ok) {
-         const data = await res.json();
-        alert(data.message);
-        // setUserPage(data); // оновлюємо сторінку після завантаження
+      if (res.status === 401) {
+        navigate("/");
       } else {
-        alert("Помилка при завантаженні фото");
+        console.log("Фото оновлено!");
       }
-    } catch (error) {
-      console.error("Помилка при fetch:", error);
+    } else {
+      console.error("Помилка HTTP:", res.status, responseText);
       alert("Помилка при завантаженні фото");
     }
+  } catch (error) {
+    console.error("Помилка при fetch:", error);
+    alert("Помилка при завантаженні фото (fetch не вдався)");
+  }
 };
+
   const handlePut = async (e) =>{
    const updateInfo = {
   newName,
@@ -86,9 +105,10 @@ if (Object.keys(checkinfo).length === 0) {
 }
 
 try {
-  const response = await fetch(`http://localhost:5008/api/UpdateInfo/${id}`, {
+  const response = await fetch(`http://localhost:5008/api/UpdateInfo`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
+    credentials: "include",
     body: JSON.stringify(checkinfo),
   });
 
@@ -98,10 +118,10 @@ try {
     alert("Помилка при оновленні даних");
     return;
   }
-
+  if(response.status===401)navigate("/");
   const data = await response.json();
-  alert("✅ Дані оновлено успішно!");
-  console.log("Відповідь сервера:", data);
+  alert(data.message);
+  console.log("Відповідь сервера:", data.userData);
 } catch (error) {
   console.error("Помилка при оновленні:", error);
 }
@@ -111,8 +131,9 @@ const handleDelete = async (e) => {
    const confirmed = window.confirm("Ви точно хочете видалити акаунт?")
   if(confirmed){
      try{
-      const res = await fetch(`http://localhost:5008/api/UserPage/delete/${id}`,{
+      const res = await fetch(`http://localhost:5008/api/UserPage/delete`,{
       method:"DELETE",
+      credentials: "include",
      });
      if(res.ok){
       alert("Акаунт видалено")
@@ -127,18 +148,10 @@ const handleDelete = async (e) => {
         console.error("Невдалось відправити запит",error)
 
       }
-       const response = await fetch("http://localhost:5008/api/UserPage/logout", {
-      method: "POST",
-      credentials: "include",
-    });
-    if(response.ok){
-
-      alert(response);
-    }
   }
 };
 const handleLogOut = async (e)=>{
- const response = await fetch("http://localhost:5008/api/UserPage/logout", {
+ const response = await fetch("http://localhost:5008/api/Login/logout", {
       method: "POST",
       credentials: "include",
     });
@@ -151,9 +164,9 @@ const handleLogOut = async (e)=>{
   return (
     <div className="main-user-info">
       <div className="user-header">
-           {User?.photo ? (
+           {user?.photo ? (
                <img
-                    src={`http://localhost:5008/uploads/${User.photo}`}
+                    src={`http://localhost:5008/uploads/${user?.photo}`}
                     className="profile-img"
                     alt="User"
                     width="200"
@@ -166,29 +179,29 @@ const handleLogOut = async (e)=>{
                 />
              )}
 
-           <h2 className="user-info">{User?.name}</h2>
-           <h2 className="user-info">{User?.lastName}</h2>
+           <h2 className="user-info">{user?.name}</h2>
+           <h2 className="user-info">{user?.lastName}</h2>
       </div>
           <h3 className="additional-header">Додаткова інформація: </h3>
        <div>
-          <p  className="additional-info"><span className="lable" >Емейл:</span>{User?.email}</p><br/>
-          <p  className="additional-info"><span className="lable" >Вік: </span> {User?.age}</p><br/>
-          <p  className="additional-info"><span className="lable" >Вага: </span>{User?.weight}</p><br/>
-          <p  className="additional-info"><span className="lable" >Зріст:</span> {User?.height}</p>
+          <p  className="additional-info"><span className="lable" >Емейл:</span>{user?.email}</p><br/>
+          <p  className="additional-info"><span className="lable" >Вік: </span> {user?.age}</p><br/>
+          <p  className="additional-info"><span className="lable" >Вага: </span>{user?.weight}</p><br/>
+          <p  className="additional-info"><span className="lable" >Зріст:</span> {user?.height}</p>
       </div>
       <hr/>
        <form onSubmit={handlePut}>
           <div className="Update-info">
              <label className="update-lable">Змінити ім'я</label><br />
-             <input type="text" className="update-input" placeholder={User?.name} value={newName} onChange={e => setNewName(e.target.value)}></input><br />
+             <input type="text" className="update-input" placeholder={user?.name} value={newName} onChange={e => setNewName(e.target.value)}></input><br />
           </div>
           <div className="Update-info">
              <label className="update-lable">Змінити Прізвище </label><br />
-             <input type="text" className="update-input" placeholder={User?.lastName} value={newLastName} onChange={e => setNewLastName(e.target.value)}></input><br />
+             <input type="text" className="update-input" placeholder={user?.lastName} value={newLastName} onChange={e => setNewLastName(e.target.value)}></input><br />
           </div>
           <div className="Update-info">
              <label className="update-lable">Змінити email </label><br />
-             <input type="text" className="update-input" placeholder={User?.email} value={newEmail} onChange={e => setNewEmail(e.target.value)}></input><br />
+             <input type="text" className="update-input" placeholder={user?.email} value={newEmail} onChange={e => setNewEmail(e.target.value)}></input><br />
           </div>
           <div className="Update-info">
              <label className="update-lable">Змінити Пароль</label><br />

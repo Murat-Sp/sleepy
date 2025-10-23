@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 
 const Details = ({ slides }) => {
   // шукаємо потрібні графіки
+
   const bedtime = slides.find(s => s.id === 'bedtime')?.data || [];
   const duration = slides.find(s => s.id === 'sleepHours')?.data || [];
   const quality = slides.find(s => s.id === 'sleepQuality')?.data || [];

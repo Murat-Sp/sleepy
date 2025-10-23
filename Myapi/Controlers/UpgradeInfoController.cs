@@ -5,6 +5,7 @@ namespace MyApi.Services;
 using Myapi.Models;
 using Microsoft.AspNetCore.Identity;
 using MongoDB.Driver;
+using System.Text.Json;
 [ApiController]
 [Route("api/[controller]")]
 
@@ -16,29 +17,34 @@ public class UpdateInfoController : ControllerBase
     {
         _userService = userService;
     }
-    [HttpPut("{id}")]
-public async Task<IActionResult> UpdateInfo([FromBody] UpgradeDto updateDto, string id)
+    [HttpPut()]
+public async Task<IActionResult> UpdateInfo([FromBody] UpgradeDto updateDto)
     {    
-    var user = await _userService.GetByIdAsync(id);
-    if (user == null) return NotFound();
+        var userJson = HttpContext.Session.GetString("UserData");
+        if (userJson == null)
+            return Unauthorized(new { message = "Користувача не знайдено" });
+        var userData = JsonSerializer.Deserialize<Users>(userJson);
+            //  var user = await _userService.GetByEmailAsync(userData.Id);
+    // var user = await _userService.GetByIdAsync(id);
+    // if (userData == null) return NotFound();
 
     if (!string.IsNullOrWhiteSpace(updateDto.NewName))
-        user.Name = updateDto.NewName;
+        userData.Name = updateDto.NewName;
 
     if (!string.IsNullOrWhiteSpace(updateDto.NewLastName))
-        user.LastName = updateDto.NewLastName;
+        userData.LastName = updateDto.NewLastName;
 
     if (!string.IsNullOrWhiteSpace(updateDto.NewEmail))
-        user.Email = updateDto.NewEmail;
+        userData.Email = updateDto.NewEmail;
 
         if (!string.IsNullOrWhiteSpace(updateDto.NewPassword) && !string.IsNullOrEmpty(updateDto.RepeatPassword))
         {
             var passwordService = new PasswordService();
             var hashedPass = passwordService.HashPassword(updateDto.NewPassword);
-            user.Password = hashedPass;
+            userData.Password = hashedPass;
         }
-    await _userService.UpdateAsync(id, user);
-    return Ok("Дані оновлено успішно");
+    await _userService.UpdateAsync(userData.Id,userData);
+    return Ok(new{message = "Данні успішно оновлено",userData});
 
 }
 
