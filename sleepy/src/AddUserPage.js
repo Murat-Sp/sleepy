@@ -128,8 +128,10 @@ const hideRules  = (e)=>{
         <input type="number"  className="input-log" value={weight} onChange={e => setWeight(e.target.value)} required />
 
         <label className="log-lable">Пароль</label>
+        <div className="login-box">
         <input  type={showPassword?"text":"password"}  className={isCorrect === null ? 'input-log' : isCorrect ? 'valid' : 'invalid'} value={password} onChange={e => {setPassword(e.target.value);checkPassword(e.target.value)}} onClick={hideRules}required />
         {showPassword?<i className="fa-solid fa-eye-slash" id="eye1" onClick={hidePassword}></i>: <i className="fa-solid fa-eye" id="eye1" onClick={ShowPassword}></i> }
+        </div>
         {clicked&&<ul className="password-rules">
             <li className={isCorrectLength ? "valid-message":"invalid-message"}>Пароль повинен містити не менше 6 символів</li>
             <li className={registerIsCorect ? "valid-message":"invalid-message"}>Пароль повинен складатись хоча б із однієї великої літери</li>

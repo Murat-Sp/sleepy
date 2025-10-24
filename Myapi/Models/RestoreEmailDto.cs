@@ -6,5 +6,4 @@ public class Restore
 {  
     
     public string RestoreEmail { get; set; }
-    public static int code { get; set; }
 }

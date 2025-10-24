@@ -70,6 +70,7 @@ export default function Login() {
         /><br/>
 
         <label className="log-lable">Пароль</label><br/>
+        <div className="input-box">
         <input 
           type={showPassword?"text":"password"}
           value={password}
@@ -78,7 +79,8 @@ export default function Login() {
           required
         />
         {showPassword?<i className="fa-solid fa-eye-slash" id="eye" onClick={hidePassword}></i>: <i className="fa-solid fa-eye" id="eye" onClick={ShowPassword}></i> }
-        <a href="/restore" className="link-log">Забули пароль?</a>
+        </div>
+        <a href="/restore" className="link-log-forgot">Забули пароль?</a>
         <br/>
         <button className="log-button" type="submit">Увійти</button>
       </form>

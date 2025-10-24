@@ -28,6 +28,11 @@ public class Users
     public string? Password { get; set; }
     [BsonElement("photo")]
     public string? Photo { get; set; } = "avatar.jpg";
+    [BsonElement("restoreCode")]
+    public string? RestoreCode { get; set; } = "";
+
+    [BsonElement("restoreExpires")]
+    public DateTime? RestoreExpires { get; set; } = null;
 
     [BsonRepresentation(BsonType.ObjectId)]
     public string? AdditionalInfoId { get; set; }

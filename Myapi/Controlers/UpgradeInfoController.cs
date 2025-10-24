@@ -24,10 +24,6 @@ public async Task<IActionResult> UpdateInfo([FromBody] UpgradeDto updateDto)
         if (userJson == null)
             return Unauthorized(new { message = "Користувача не знайдено" });
         var userData = JsonSerializer.Deserialize<Users>(userJson);
-            //  var user = await _userService.GetByEmailAsync(userData.Id);
-    // var user = await _userService.GetByIdAsync(id);
-    // if (userData == null) return NotFound();
-
     if (!string.IsNullOrWhiteSpace(updateDto.NewName))
         userData.Name = updateDto.NewName;
 

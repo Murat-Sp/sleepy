@@ -7,7 +7,7 @@ builder.Services.AddSingleton<AdditionalInfoService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddHttpClient();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReact", policy =>
@@ -29,7 +29,6 @@ builder.Services.AddSession(options =>
     options.Cookie.SameSite = SameSiteMode.None;
     options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
 });
-
 var app = builder.Build();
 // var uploadsPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
 

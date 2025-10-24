@@ -5,9 +5,11 @@ using MongoDB.Driver;
 using System.Runtime.ExceptionServices;
 using Azure.Identity;
 using Microsoft.AspNetCore.Identity;
+using System;
 using System.Net;
 using System.Net.Mail;
 using System.Text.Json;
+using System.Data;
 namespace MyApi.Services;
 
 
@@ -38,7 +40,7 @@ public class LoginController : ControllerBase
         Console.WriteLine(HttpContext.Session.Id);
         return Ok(new { user, loggedIn = true} );
     }
-    [HttpGet("check")]
+    // [HttpGet("check")]
     // [HttpGet("user")]
     // public IActionResult Profile()
     // {
@@ -64,21 +66,24 @@ public class LoginController : ControllerBase
     [HttpPost("restore")]
     public async Task<IActionResult> Restore([FromBody] Restore restore)
     {
-         var user = await _userService.GetByEmailAsync(restore.RestoreEmail);
+        var user = await _userService.GetByEmailAsync(restore.RestoreEmail);
         if (user == null)
             return NotFound("Користувача не знайдено");
         try
         {
             var random = new Random();
-            int code = random.Next(100000, 999999);
+            string code = random.Next(100000, 999999).ToString();
+            user.RestoreCode = code;
+            user.RestoreExpires = DateTime.UtcNow.AddMinutes(1);
+            await _userService.UpdateAsync(user.Id, user);
             var mail = new MailMessage();
             mail.From = new MailAddress("sleepyapp3@gmail.com");
             mail.To.Add(restore.RestoreEmail);
             mail.Subject = "Код відновлення паролю";
-            mail.Body = $"<h1>Відновлення паролю</h1>,<p>{code}</p>";
+            mail.Body = $"<h1>Відновлення паролю</h1><p>{code}</p>";
             mail.IsBodyHtml = true;
             using var smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.Credentials = new NetworkCredential("sleepyapp3@gmail.com","fslk phbs vrvh ecxb");
+            smtp.Credentials = new NetworkCredential("sleepyapp3@gmail.com", "fslk phbs vrvh ecxb");
             smtp.EnableSsl = true;
             smtp.Send(mail);
 
@@ -89,7 +94,38 @@ public class LoginController : ControllerBase
         {
             Console.WriteLine("Помилка при відправці: " + ex.Message);
         }
-        
-        return Ok(new{ message = "код відпрвленно"});
+
+        return Ok(new { message = "код відпрвленно" });
+    }
+    [HttpPost("verify-code")]
+    public async Task<IActionResult> Verify([FromBody] verifyDto verifyDto)
+    {
+        var user = await _userService.GetByEmailAsync(verifyDto.RestoreEmail);
+        if (user == null) return NotFound("Користувача не знайдено");
+        if (!user.RestoreExpires.HasValue) return BadRequest("Данних про час не існує");
+        DateTime CreateTime = user.RestoreExpires.Value;
+        DateTime now = DateTime.UtcNow;
+        TimeSpan diff = now - CreateTime;
+        if (diff.TotalSeconds > 60) { 
+             user.RestoreCode = "";
+             user.RestoreExpires = null;
+             await _userService.UpdateAsync(user.Id,user);
+            return BadRequest("час дії коду минув"); }
+        if (verifyDto.RestoreCode != user.RestoreCode) return BadRequest("Не вірний код");
+            
+        return Ok(new { message = "код підтверджено" });
+    }
+    [HttpPost("new-password")]
+    public async Task<IActionResult> ChangePassword([FromBody]RestorePasswordDto restorePassword)
+    {
+        var user = await _userService.GetByEmailAsync(restorePassword.RestoreEmail);
+        if (user == null) return NotFound("Користувача не знайдено");
+         user.RestoreCode = "";
+         user.RestoreExpires = null;
+         var passwordService = new PasswordService();
+        string hashedPassword = passwordService.HashPassword(restorePassword.RestorePassword);
+        user.Password = hashedPassword;
+        await _userService.UpdateAsync(user.Id,user);
+        return Ok(new{message = "Пароль змінено"});
     }
 }

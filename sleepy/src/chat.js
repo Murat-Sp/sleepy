@@ -16,7 +16,7 @@ export default function Chat() {
     setIsLoading(true)
 
     try {
-      const res = await axios.post("http://localhost:3001/api/chat", { message: input })
+      const res = await axios.post("http://localhost:5008/api/Chat", { message: input })
       const botMessage = { sender: "bot", text: res.data.reply }
       setMessages(prev => [...prev, botMessage])
     } catch (err) {
