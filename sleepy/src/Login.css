@@ -130,8 +130,13 @@ width:100%;
     color: gray;
     cursor: pointer;
    right: 5%;
-  top: 51%;
+  top: 57%;
+
   transform: translateY(-50%);
+}
+
+.eyeRestore{
+    top: 24.5%;
 }
 .timer{
   margin: 0;

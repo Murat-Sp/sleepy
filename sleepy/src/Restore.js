@@ -121,7 +121,7 @@ const handlePassword=  async(e) =>{
                 <input   className="input-log" type="password"
                  value={restorePassword} onChange={(e)=>setNewPassword(e.target.value)} placeholder="Введіть новий пароль"></input>
                 <button className="log-button" type="submit">Надіслати</button>
-                  {showPassword?<i className="fa-solid fa-eye-slash" id="eye" onClick={hidePassword}></i>: <i className="fa-solid fa-eye" id="eye" onClick={ShowPassword}></i> }
+                  {showPassword?<i className="fa-solid fa-eye-slash eyeRestore" id="eye" onClick={hidePassword}></i>: <i className="fa-solid fa-eye" id="eye" onClick={ShowPassword}></i> }
             </form>}
             {message && <p className="invalid-message">{message}</p>}
         </div>

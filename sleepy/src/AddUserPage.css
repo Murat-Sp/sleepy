@@ -19,6 +19,7 @@
 }
 
 .loginForm {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -33,6 +34,7 @@
 }
 
 .input-log {
+  
   padding: 10px 35px 10px 10px; 
   width: 87%;
   background-color: #1e1e1e;
@@ -172,12 +174,11 @@
   margin-left: 5px;
 }
 #eye1{
-    position: absolute;
+    position: relative;
     color: gray;
     cursor: pointer;
-   right: 5%;
-  top: 88.7%;
-  transform: translateY(-50%);
+   right: -90%;
+  transform: translateY(-173%);
 }
 .input-box{
 position: relative;
