@@ -104,3 +104,56 @@ textarea {
 section{
     background-color: #121212;
 }
+.range{
+  -webkit-appearance: none;
+  width: 300px;
+  height: 5px;
+  background: #333;
+  border-radius: 5px;
+  outline: none;
+}
+.range::-webkit-slider-runnable-track {
+  background: limegreen;
+  height: 5px;
+  border-radius: 5px;
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  border: 2px solid limegreen;
+  cursor: pointer;
+  margin-top: -7px; 
+}
+.range::-moz-range-track {
+  background: limegreen;
+  height: 5px;
+  border-radius: 5px;
+}
+
+.range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: white;
+  border: 2px solid limegreen;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.RangeValue{
+  position: absolute;
+  margin: 0;
+  left: 360px;
+  bottom: 10px;
+  right: 5px;
+}
+.RangeLable{
+ position: relative;
+}
+.ValueDifficultyLevel{
+   position: absolute;
+  margin: 0;
+  left: 390px;
+  bottom: 310px;
+}

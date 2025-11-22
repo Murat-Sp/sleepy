@@ -1,13 +1,10 @@
 import { useRef, useEffect, useState } from 'react';
 
 const Details = ({ slides }) => {
-  // шукаємо потрібні графіки
 
   const bedtime = slides.find(s => s.id === 'bedtime')?.data || [];
   const duration = slides.find(s => s.id === 'sleepHours')?.data || [];
   const quality = slides.find(s => s.id === 'sleepQuality')?.data || [];
-
-  // функція для середнього значення
   const avg = (arr) => arr.length ? (arr.reduce((a,b) => a+b, 0) / arr.length).toFixed(1) : 0;
 
   const avgBedtime = avg(bedtime);
@@ -16,7 +13,7 @@ const Details = ({ slides }) => {
 
   return (
     <div className='details'>
-      <p>last dream:</p>
+      <p>Крайній сон:</p>
       <div className='fullDetails'>
         <div className='section' id='sectionOne'>
           <img src='/png/icon-bad2.png' alt="bad2"></img>
@@ -25,14 +22,14 @@ const Details = ({ slides }) => {
         </div>
 
         <div className='section' id='sectionTwo'>
-          <p>bedtime</p>
-          <p>duration</p>
-          <p>quality</p>
+          <p>Засинання</p>
+          <p>тривалість</p>
+          <p>якість</p>
         </div>
 
         <div className='section' id='sectionThee'>
-          <p>{avgBedtime}m</p>
-          <p>{avgDuration}h</p>
+          <p>{avgBedtime}г</p>
+          <p>{avgDuration}г</p>
           <p>{avgQuality}%</p>
         </div>
       </div>

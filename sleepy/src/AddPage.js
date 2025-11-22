@@ -10,12 +10,12 @@ export default function AddSleep({ addSleepRecord }) {
   // const { id } = useParams()
   const [bedtime, setBedtime] = useState("");
   const [wakeTime, setWakeTime] = useState("");
-  const [wakeUps, setWakeUps] = useState(0);
+  const [wakeUps, setWakeUps] = useState();
   const [difficultyFallingAsleep, setDifficultyFallingAsleep] = useState(false);
   const [difficultyLevel, setDifficultyLevel] = useState(3);
-  const [mood, setMood] = useState("normal");
+  const [mood, setMood] = useState("Нормальний");
   const [usedGadgets, setUsedGadgets] = useState(false);
-  const [gadgetMinutes, setGadgetMinutes] = useState(0);
+  const [gadgetMinutes, setGadgetMinutes] = useState();
   const [caffeine, setCaffeine] = useState(false);
   const [caffeineWhen, setCaffeineWhen] = useState("");
   const [stress, setStress] = useState(5);
@@ -36,6 +36,7 @@ export default function AddSleep({ addSleepRecord }) {
     return +((end - start) / 60).toFixed(2);
   };
 
+
   const computeQualityPercent = (tempRecord) => {
     let score = 100;
     console.log(tempRecord.Duration)
@@ -50,8 +51,8 @@ export default function AddSleep({ addSleepRecord }) {
       score -= 10 + Math.min(Math.floor(tempRecord.GadgetMinutes / 10), 10);
     if (tempRecord.Caffeine) score -= 8;
     if (tempRecord.Stress > 5) score -= (tempRecord.Stress - 5) * 4;
-    if (tempRecord.mood === "bad") score -= 12;
-    else if (tempRecord.Mood === "normal") score -= 3;
+    if (tempRecord.mood === "Поганий") score -= 12;
+    else if (tempRecord.Mood === "Нормальний") score -= 3;
     if (tempRecord.Bedtime) {
       const [hh] = tempRecord.Bedtime.split(":").map(Number);
       if (hh >= 1 && hh <= 4) score -= 8;
@@ -148,7 +149,7 @@ try {
         <h3>2. Якість і відчуття</h3>
         <label>
           Кількість пробуджень:
-          <input type="number" min="0" value={wakeUps} onChange={(e) => setWakeUps(e.target.value)} />
+          <input type="number" min="0" value={wakeUps} placeholder="0" onChange={(e) => setWakeUps(e.target.value)} />
         </label>
 
         <label>
@@ -159,8 +160,7 @@ try {
         {difficultyFallingAsleep && (
           <label>
             Рівень труднощі (1-10):
-            <input type="range" min="1" max="10" value={difficultyLevel} onChange={(e) => setDifficultyLevel(e.target.value)} />
-            {difficultyLevel}
+            <input type="range" className="range" min="1" max="10" value={difficultyLevel} onChange={(e) => setDifficultyLevel(e.target.value)}  /><p className="ValueDifficultyLevel">{difficultyLevel}</p>
           </label>
         )}
 
@@ -185,7 +185,7 @@ try {
         {usedGadgets && (
           <label>
             Скільки хвилин?
-            <input type="number" min="0" value={gadgetMinutes} onChange={(e) => setGadgetMinutes(e.target.value)} />
+            <input type="number" min="0" value={gadgetMinutes} placeholder="0" onChange={(e) => setGadgetMinutes(e.target.value)} />
           </label>
         )}
 
@@ -201,10 +201,9 @@ try {
           </label>
         )}
 
-        <label>
+        <label className="RangeLable">
           Стрес перед сном (1-10):
-          <input type="range" min="1" max="10" value={stress} onChange={(e) => setStress(e.target.value)} />
-          {stress}
+          <input type="range" className="range" min="1" max="10" value={stress} onChange={(e) => setStress(e.target.value)} /> <p className="RangeValue">{stress}</p>
         </label>
 
         <label>

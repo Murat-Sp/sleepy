@@ -75,7 +75,7 @@ export default function Chat() {
           className="input"
         />
         <button onClick={sendMessage} className="send-button">
-          Send
+          Надіслати
         </button>
       </div>
     </div>

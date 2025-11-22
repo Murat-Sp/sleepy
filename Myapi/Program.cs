@@ -1,7 +1,5 @@
 using Microsoft.Extensions.FileProviders;
 var builder = WebApplication.CreateBuilder(args);
-
-// --- Сервіси ---
 builder.Services.AddSingleton<UserService>();
 builder.Services.AddSingleton<AdditionalInfoService>();
 builder.Services.AddControllers();
@@ -30,21 +28,6 @@ builder.Services.AddSession(options =>
     options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
 });
 var app = builder.Build();
-// var uploadsPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
-
-// // якщо папки ще нема — створюємо
-// if (!Directory.Exists(uploadsPath))
-// {
-//     Directory.CreateDirectory(uploadsPath);
-// }
-
-// app.UseStaticFiles(new StaticFileOptions
-// {
-//     FileProvider = new PhysicalFileProvider(uploadsPath),
-//     RequestPath = "wwwroot/uploads"
-// });
-
-// --- Middleware ---
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -113,7 +113,7 @@ const hideRules  = (e)=>{
         <label className="log-lable">Прізвище</label>
         <input type="text"  className="input-log" value={lastName} onChange={e => setLastName(e.target.value)} required />
 
-        <label className="log-lable">Email</label>
+        <label className="log-lable">Eмейл</label>
         <input type="email"  className={checkEmail===null?'input-log': checkEmail ? 'invalid':'valid'} id="email" value={email} onChange={e => setEmail(e.target.value)} required />
         {checkEmail&&<p className="error-message">Користувач з таким емейлом вже існує</p>}
         <label className="log-lable">Вік</label>

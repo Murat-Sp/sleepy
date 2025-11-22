@@ -70,6 +70,7 @@ export default function UsersPage() {
       }
 
       alert(data?.message || "Фото успішно оновлено!");
+      window.location.reload();
       if (data?.userData) setUser(data.userData);
     } catch (error) {
       console.error("Помилка при fetch:", error);
@@ -299,7 +300,6 @@ export default function UsersPage() {
           Оновити зображення
         </button>
       </form>
-
       <a href="/" className="log-out" onClick={handleLogOut}>
         Вийти з акаунту
       </a>

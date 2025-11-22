@@ -35,24 +35,24 @@
 
 .input-log {
   
-  padding: 10px 35px 10px 10px; 
-  width: 87%;
+    width: 87%;
   background-color: #1e1e1e;
   border: 1px solid #333;
   border-radius: 10px;
   color: #f1f1f1;
   font-size: 0.95rem;
   transition: border 0.3s ease, background 0.3s ease;
+  padding: 10px 35px 10px 10px; 
 }
 
 .input-log:focus {
   outline: none;
-  border-color: #6c63ff;
+  border-color:#4caf50;
   background-color: #262626;
 }
 
 .log-button {
-  background-color: #6c63ff;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 12px;
@@ -65,7 +65,7 @@
 }
 
 .log-button:hover {
-  background-color: #7b74ff;
+  background-color: #4caf50;
   box-shadow: 0 0 18px rgba(108, 99, 255, 0.4);
   transform: translateY(-1px);
 }
@@ -125,24 +125,36 @@
 .valid {
  background-color: #262626;
   border: 1px solid rgb(52, 245, 52);
-  border-color: rgb(52, 245, 52);
+  /* border-color: rgb(52, 245, 52); */
   /* border-radius: 10px;
   color: #f1f1f1;
   font-size: 0.95rem; */
   box-sizing: border-box;
   outline: none;
   transition: border-color 0.15s;
+     width: 100%;
+  border-radius: 10px;
+  color: #f1f1f1;
+  font-size: 0.95rem;
+  transition: border 0.3s ease, background 0.3s ease;
+  padding: 10px 35px 10px 10px; 
 }
 .invalid{
   border: 1px solid rgb(147, 10, 22);
   background-color: #262626;
-  border-color: rgb(147, 10, 22);
+  /* border-color: rgb(147, 10, 22); */
   /* border-radius: 10px;
   color: #f1f1f1;
   font-size: 0.95rem; */
   box-sizing: border-box;
   outline: none;
   transition: border-color 0.15s;
+    width: 100%;
+  border-radius: 10px;
+  color: #f1f1f1;
+  font-size: 0.95rem;
+  transition: border 0.3s ease, background 0.3s ease;
+  padding: 10px 35px 10px 10px; 
 }
 .password-rules{
   list-style: none;
@@ -156,7 +168,9 @@
 }
 .invalid-message{
   color:rgb(147, 10, 22);
-  margin-bottom: 5px;
+      text-align: left;
+    justify-content: left;
+    margin-bottom: 5px;
 }
 .discribe-reg {
   color: #bbb;
@@ -167,7 +181,7 @@
 }
 
 .link-reg {
-  color: #6c63ff;
+  color: #4caf50;
   text-decoration: none;
   font-weight: 600;
   transition: 0.3s;
@@ -177,8 +191,8 @@
     position: relative;
     color: gray;
     cursor: pointer;
-   right: -90%;
-  transform: translateY(-173%);
+    right: -365px;
+    transform: translateY(-171%);
 }
 .input-box{
 position: relative;

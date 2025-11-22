@@ -47,7 +47,7 @@ const Schedule = ({ slides }) => {
     <div style={{ maxWidth: '600px', margin: '0 auto' }}>
       <canvas ref={chartRef} width="600" height="300"></canvas>
       <button className='Schedulebtn' onClick={nextSlide}>
-        Next schedule
+        Наступний графік
       </button>
     </div>
   );

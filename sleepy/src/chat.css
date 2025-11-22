@@ -43,7 +43,7 @@
 
 .message.user {
   align-self: flex-end;
-  background-color: #0078ff;
+  background-color:  #4caf50;
   color: white;
 }
 
@@ -75,7 +75,7 @@
 
 .send-button {
   width: 100px;
-  background-color: #0078ff;
+  background-color:  #4caf50;
   color: white;
   border: none;
   border-radius: 12px;
@@ -85,7 +85,7 @@
 }
 
 .send-button:hover {
-  background-color: #0064d1;
+  background-color:  #1e7421;
 }
 
 .typing {

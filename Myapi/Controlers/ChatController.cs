@@ -21,7 +21,9 @@ public class ChatController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] ChatDto request)
     {
-    Console.WriteLine(_apiKey);
+        Console.WriteLine(_apiKey);
+        Console.WriteLine($"API Key: {_apiKey?.Substring(0,5)}***");
+
         try
         {
             var payload = new
@@ -36,6 +38,11 @@ public class ChatController : ControllerBase
             var json = JsonSerializer.Serialize(payload);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiKey);
+            _httpClient.DefaultRequestHeaders.Clear();
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiKey);
+            _httpClient.DefaultRequestHeaders.Add("HTTP-Referer", "http://localhost:5000");
+            _httpClient.DefaultRequestHeaders.Add("X-Title", "Sleepy AI Chat");
+
 
             var response = await _httpClient.PostAsync("https://openrouter.ai/api/v1/chat/completions", content);
 

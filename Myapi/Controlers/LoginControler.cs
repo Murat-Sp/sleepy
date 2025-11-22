@@ -11,6 +11,7 @@ using System.Net.Mail;
 using System.Text.Json;
 using System.Data;
 
+
 namespace MyApi.Services
 {
     [ApiController]
@@ -148,7 +149,7 @@ string htmlBody = $@"
         {
             var user = await _userService.GetByEmailAsync(verifyDto.RestoreEmail);
             if (user == null) return NotFound("Користувача не знайдено");
-            if (!user.RestoreExpires.HasValue) return BadRequest("Даних про час не існує");
+            if (!user.RestoreExpires.HasValue) return BadRequest("Відправте код знову");
 
             DateTime expireTime = user.RestoreExpires.Value;
             DateTime now = DateTime.UtcNow;
@@ -172,6 +173,9 @@ string htmlBody = $@"
         public async Task<IActionResult> ChangePassword([FromBody] RestorePasswordDto restorePassword)
         {
             var user = await _userService.GetByEmailAsync(restorePassword.RestoreEmail);
+                 user.RestoreCode = "";
+                user.RestoreExpires = null;
+                await _userService.UpdateAsync(user.Id, user);
             if (user == null) return NotFound("Користувача не знайдено");
 
             user.RestoreCode = "";

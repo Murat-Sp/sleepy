@@ -4,7 +4,7 @@
   background-color: #121212;
   padding: 30px 25px 40px;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(108, 99, 255, 0.2);
+  box-shadow: 0 0 20px rgba(13, 197, 59, 0.2);
   color: #f1f1f1;
   font-family: 'Poppins', sans-serif;
   animation: fadeIn 0.5s ease-in;
@@ -13,7 +13,7 @@
 
 .Enter {
   text-align: center;
-  color: #6c63ff;
+  color: #4caf50;
   font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 25px;
@@ -46,11 +46,11 @@
 
 .input-log:focus {
   outline: none;
-  border-color: #6c63ff;
+  border-color: #4caf50;
   background-color: #262626;
 } 
 .log-button {
-  background-color: #6c63ff;
+  background-color: #4caf50;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -59,12 +59,11 @@
   font-weight: 600;
   margin-top: 10px;
   transition: 0.3s ease;
-  box-shadow: 0 0 12px rgba(108, 99, 255, 0.3);
+  box-shadow: 0 0 12px rgba(13, 197, 59, 0.2);
 }
-
 .log-button:hover {
-  background-color: #7b74ff;
-  box-shadow: 0 0 18px rgba(108, 99, 255, 0.4);
+  background-color: #4caf50;
+  box-shadow: 0 0 20px rgba(13, 197, 59, 0.2);
   transform: translateY(-1px);
 }
 
@@ -76,14 +75,14 @@
 }
 
 .link-log {
-  color: #6c63ff;
+  color: #4caf50;
   text-decoration: none;
   font-weight: 600;
   transition: 0.3s;
 }
 
 .link-log:hover {
-  color: #837bff;
+  color: #4caf50;
 }
 
 .discribe-log{
@@ -142,7 +141,7 @@ width:100%;
   margin: 0;
   margin-top: 10px;
   margin-left: 10px;
-  color:#7b74ff ;
+  color:#4caf50 ;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 15px;
 }
@@ -150,8 +149,17 @@ width:100%;
   justify-content: end;
   display: flex;
     margin-left: 5px;
-    color: #6c63ff;
+    color:#4caf50;
   text-decoration: none;
   font-weight: 600;
   transition: 0.3s;
+}
+#eye3{
+  position: absolute;
+    color: gray;
+    cursor: pointer;
+   right: 3%;
+  top: 57%;
+
+  transform: translateY(-285%);
 }

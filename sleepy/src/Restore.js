@@ -43,11 +43,14 @@ export default function Restore() {
               if(response.ok){
                 const data =  await response.json()
                 alert(data.message)
+                 setMessage(null)
                 setNextForm("code");
               }
               if (!response.ok) {
+                if(response.status == 404){
                  const message = await response.text();
                    setMessage(message)
+                  }
                   throw new Error(message || "Невідома помилка");
                }
         } 
@@ -68,10 +71,13 @@ const handleCode =  async(e) =>{
                 const data =  await response.json()
                 alert(data.message)
                 setNextForm("password");
+                setMessage(null);
               }
               if (!response.ok) {
+                if(response.status === 400){
                  const message = await response.text();
                    setMessage(message)
+                  }
                   throw new Error(message || "Невідома помилка");
                }
         } 
@@ -93,9 +99,11 @@ const handlePassword=  async(e) =>{
                 alert(data.message)
                  navigate("/")
               }
-              if (!response.ok) {
+               if (!response.ok) {
+                if(response.status === 404){
                  const message = await response.text();
-                  setMessage(message)
+                   setMessage(message)
+                  }
                   throw new Error(message || "Невідома помилка");
                }
            } 
@@ -108,22 +116,24 @@ const handlePassword=  async(e) =>{
             <h2 className="Enter">Відновлення паролю</h2>
            {nextForm === null && (<form className="loginForm" onSubmit={handleSubmit}>
                 <input   className="input-log" type="email"
-                 value={restoreEmail} onChange={(e)=>setRestoreEmail(e.target.value)} placeholder="Введіть Email"></input>
+                 value={restoreEmail} onChange={(e)=>setRestoreEmail(e.target.value)} placeholder="Введіть Eмейл"></input>
                 <button className="log-button" type="submit">Відправити код відновлення</button>
+                 {message && <p className="invalid-message">{message}</p>}
             </form>)}{nextForm === "code" && <form className="loginForm" onSubmit={handleCode}>
                 <input   className="input-log" type="text"
-                 value={restoreCode} onChange={(e)=>setCode(e.target.value)} placeholder="Введіть код"></input>
+                 value={restoreCode} onChange={(e)=>setCode(e.target.value)} placeholder="Введіть 6-значний код"></input>
                 <button className="log-button" type="submit">Перевірити код</button>
+                 {message && <p className="invalid-message">{message}</p>}
                 {timer<59? <p className="timer">00:{timer}</p>:<p className="discribe-log">Неприйшов код?<a className="link-log" onClick={handleSubmit}>Надіслати код</a></p>}
             </form>
             }
             {nextForm === "password" &&  <form className="loginForm" onSubmit={handlePassword}>
-                <input   className="input-log" type="password"
+                <input   className="input-log" type={showPassword?"text":"password"}
                  value={restorePassword} onChange={(e)=>setNewPassword(e.target.value)} placeholder="Введіть новий пароль"></input>
                 <button className="log-button" type="submit">Надіслати</button>
-                  {showPassword?<i className="fa-solid fa-eye-slash eyeRestore" id="eye" onClick={hidePassword}></i>: <i className="fa-solid fa-eye" id="eye" onClick={ShowPassword}></i> }
+                  {showPassword?<i className="fa-solid fa-eye-slash eyeRestore" id="eye3" onClick={hidePassword}></i>: <i className="fa-solid fa-eye" id="eye3" onClick={ShowPassword}></i> }
+                  {message && <p className="invalid-message">{message}</p>}
             </form>}
-            {message && <p className="invalid-message">{message}</p>}
         </div>
     )
 }

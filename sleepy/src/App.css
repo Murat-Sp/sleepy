@@ -10,8 +10,8 @@ body {
 }
 
 h1 {
-  width: 205px;
-  color: #f5f5f5;
+  width: auto;
+  color: #4caf50;
   margin-left: 20px;
 }
 
@@ -61,7 +61,7 @@ p {
   align-items: center;
   text-align: center;
   display: inline-flex;
-  margin-left: 35px;
+  margin-left: 10px;
   font-size: larger;
 }
 

@@ -65,7 +65,7 @@ useEffect(() => {
   
   if (!user) return;
    if (location.pathname === "/" || location.pathname === "/addUser" || location.pathname === "/restore") {
-    return; } // Не вантажимо дані, поки користувач не визначений
+    return; } 
 
   const fetchSleepData = async () => {
     try {
@@ -96,7 +96,7 @@ useEffect(() => {
   const infoArray = Array.isArray(additionalInfo) ? additionalInfo : [];
   if (!additionalInfo || additionalInfo.length === 0) {
     return [
-      { id: "bedtime", label: "Час засипання", labels: [], data: [], borderColor: "blue" },
+      { id: "bedtime", label: "Час засинання", labels: [], data: [], borderColor: "blue" },
       { id: "sleepHours", label: "Час сну", labels: [], data: [], borderColor: "green" },
       { id: "sleepQuality", label: "Якість сну (%)", labels: [], data: [], borderColor: "purple" },
     ];
@@ -107,7 +107,7 @@ useEffect(() => {
   return [
     {
       id: "bedtime",
-      label: "Час засипання (години)",
+      label: "Час засинання (години)",
       labels,
       data: additionalInfo.map((d) => {
         if (!d.BedTime) return null;
@@ -175,7 +175,7 @@ useEffect(() => {
                 <div className="ScheduleFat">
                   <div className="Schedule"></div>
                   <div style={{ textAlign: "center", fontFamily: "Arial" }}>
-                    <h1>sleep tracker</h1>
+                    <h1>Контроль сну</h1>
                     <Schedule slides={convertToSlides(additionalInfo)} />
                   </div>
                 </div>

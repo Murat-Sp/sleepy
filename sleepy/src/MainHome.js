@@ -29,12 +29,12 @@ export default function MainHome({ additionalInfo }) {
           <div>
             <p id="stepsId" className="steps">1 steps left</p>
             <p id="stepsTextId" className="stepsText">
-              complete today's steps
+               виконати сьогоднішні кроки
               <br />
-              to improve sleep
+              щоб покращити сон
             </p>
             <button id="btnStepsId" className="btnSteps" onClick={() => navigate("/add")}>
-              continue
+              продовжити
             </button>
           </div>
         </>
@@ -47,20 +47,20 @@ export default function MainHome({ additionalInfo }) {
               {getAdviceTextFromQuality(last.qualityPercent)}
             </p>
             <small className="advice-sub">
-              (основні фактори: {last.usedGadgets ? "гаджети, " : ""}
-              {last.caffeine ? "кофеїн, " : ""}стрес: {last.stress})
+              (основні фактори: {last.UsedGadgets ? "гаджети, " : ""}
+              {last.Caffeine ? "кофеїн, " : ""}стрес: {last.Stress})
             </small>
           </div>
 
           {/* Останній сон */}
           <div className="last-sleep-box">
-            <h4 className="last-sleep-title">Last sleep — {last.date}</h4>
+            <h4 className="last-sleep-title">Крайній сон:</h4>
             <p>
-              Заснув: {last.bedtime} • Прокинувся: {last.wakeTime} • Тривалість:{" "}
-              {last.duration} год.
+              Заснув: {last.BedTime} • Прокинувся: {last.Waketime} • Тривалість:{" "}
+              {last.Duration} год.
             </p>
             <p>
-              Прокидань: {last.wakeUps} • Настрій: {last.mood} • Якість:{" "}
+              Прокидань: {last.WakeUps} • Настрій: {last.Mood} • Якість:{" "}
               {last.qualityScale}/10 ({last.qualityPercent}%)
             </p>
           </div>

@@ -1,8 +1,20 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\01a2587a-a6a9-48d9-a2f5-11bff9167b7d_Лаб 5 КГ.png",
+      "PackagePath": "staticwebassets\\uploads\\01a2587a-a6a9-48d9-a2f5-11bff9167b7d_Лаб 5 КГ.png"
+    },
+    {
       "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\02d4f83f-31f5-4a7d-878e-4f690a1272c0_гриб.jpg",
       "PackagePath": "staticwebassets\\uploads\\02d4f83f-31f5-4a7d-878e-4f690a1272c0_гриб.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\0adfd589-cc1d-4337-bb59-f55e3ba94427_гриб.jpg",
+      "PackagePath": "staticwebassets\\uploads\\0adfd589-cc1d-4337-bb59-f55e3ba94427_гриб.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\2385a0da-0397-425c-9524-cb6d0d20ebdd_check.png",
+      "PackagePath": "staticwebassets\\uploads\\2385a0da-0397-425c-9524-cb6d0d20ebdd_check.png"
     },
     {
       "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\3e28a70a-69d7-441c-af9b-2b8e011a9b6f_Background.png",
@@ -13,6 +25,14 @@
       "PackagePath": "staticwebassets\\uploads\\5ae9223b-e634-4281-9ef2-448ff4761cc2_check.png"
     },
     {
+      "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\6bcb8bd4-149d-4529-98e0-f7ace0ee2321_Компютерна графіка лев.png",
+      "PackagePath": "staticwebassets\\uploads\\6bcb8bd4-149d-4529-98e0-f7ace0ee2321_Компютерна графіка лев.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\6ca8691f-b537-4550-9c13-15ad9cb8c913_cancel.png",
+      "PackagePath": "staticwebassets\\uploads\\6ca8691f-b537-4550-9c13-15ad9cb8c913_cancel.png"
+    },
+    {
       "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\6ddd25b9-a942-4180-9741-b719ea9d1eff_cancel.png",
       "PackagePath": "staticwebassets\\uploads\\6ddd25b9-a942-4180-9741-b719ea9d1eff_cancel.png"
     },
@@ -21,16 +41,20 @@
       "PackagePath": "staticwebassets\\uploads\\6ef7a86b-f903-4646-95c7-a17a345577cd_cancel.png"
     },
     {
+      "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\a02bdf93-a8d5-4356-8b34-2485ce1359dd_гриб.jpg",
+      "PackagePath": "staticwebassets\\uploads\\a02bdf93-a8d5-4356-8b34-2485ce1359dd_гриб.jpg"
+    },
+    {
       "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\ae321b52-aa00-463d-a9c4-2ab4b6c4ea05_ChatGPT Image 26 вер. 2025 р., 12_04_06.png",
       "PackagePath": "staticwebassets\\uploads\\ae321b52-aa00-463d-a9c4-2ab4b6c4ea05_ChatGPT Image 26 вер. 2025 р., 12_04_06.png"
     },
     {
-      "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\avatar.jpg",
-      "PackagePath": "staticwebassets\\uploads\\avatar.jpg"
-    },
-    {
       "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\b1f87dd0-31e2-4b09-b5cf-143891020313_angle-circle-left_7487158.png",
       "PackagePath": "staticwebassets\\uploads\\b1f87dd0-31e2-4b09-b5cf-143891020313_angle-circle-left_7487158.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\c27663b8-8c3d-409a-b0ca-fbaa989780aa_angle-circle-left_7487158.png",
+      "PackagePath": "staticwebassets\\uploads\\c27663b8-8c3d-409a-b0ca-fbaa989780aa_angle-circle-left_7487158.png"
     },
     {
       "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\d49c4062-20f7-4a14-b073-937afe48fc6c_Background.png",
@@ -39,6 +63,10 @@
     {
       "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\dc82d639-f50f-4276-9719-8a7e53f24adc_завантаження (1).jpg",
       "PackagePath": "staticwebassets\\uploads\\dc82d639-f50f-4276-9719-8a7e53f24adc_завантаження (1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\e016e0eb-8319-4a82-ae8a-7b2fd6feb324_Лаб КГ.png",
+      "PackagePath": "staticwebassets\\uploads\\e016e0eb-8319-4a82-ae8a-7b2fd6feb324_Лаб КГ.png"
     },
     {
       "Id": "C:\\Users\\Admin\\Desktop\\kyrsova\\Myapi\\wwwroot\\uploads\\e9711169-ea8a-4670-a118-a3ef64530afd_cancel.png",

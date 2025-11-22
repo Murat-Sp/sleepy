@@ -60,7 +60,7 @@ export default function Login() {
     <div className="Loginbox">
       <h1 className="Enter">Ввійдіть в акаунт</h1>
       <form className="loginForm" onSubmit={handleSubmit}>
-        <label className="log-lable">Email</label><br/>
+        <label className="log-lable">Емейл</label><br/>
         <input
           className="input-log"
           type="email"
