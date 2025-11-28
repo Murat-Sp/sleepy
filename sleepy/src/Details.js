@@ -13,7 +13,7 @@ const Details = ({ slides }) => {
 
   return (
     <div className='details'>
-      <p>Крайній сон:</p>
+      <p>Середні значення:</p>
       <div className='fullDetails'>
         <div className='section' id='sectionOne'>
           <img src='/png/icon-bad2.png' alt="bad2"></img>

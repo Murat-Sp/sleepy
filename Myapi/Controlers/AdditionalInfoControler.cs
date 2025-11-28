@@ -22,7 +22,7 @@ public class AdditionalInfo : ControllerBase
         if (userJson == null)
             return Unauthorized();
          var userData = JsonSerializer.Deserialize<Users>(userJson);
-        additional.UserId = userData.Id;
+        additional.UserId = userData?.Id;
         var createdInfo = await _additionalService.CreateAsync(additional);
         userData.AdditionalInfoId = createdInfo.Id;
 
